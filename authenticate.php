@@ -2,7 +2,7 @@
 
     require_once "config/setup.php";
 //login
-    if (!isset($_POST['username'], $_POST['password']))
+    if (!(isset($_POST['username'], $_POST['password'])))
     {
         die("Cheese or keys, please.");
     }
@@ -14,13 +14,13 @@
         $stmt->store_result;
     }
 
-
-    //register
+if (isset($_POST['submit']))
+{    //register
     if (!isset($_POST['username'], $_POST['email'], $_POST['password'], $_POST['confirmpassword']))
     {
         die("Empty Fields, no cheese.");
     }
-    $sql = "SELECT userid FROM users WHERE username=?";
+    $sql = "SELECT `userid` FROM `users` WHERE username=?";
     if ($conn->prepare($sql))
     {
         $stmt->bindParam("s", $_POST['username']);
@@ -28,7 +28,7 @@
         $stmt->store_result;
     }
     // fetch result if result then die("Username taken, stolen cheese.")
-    $sql = "SELECT userid FROM users WHERE email=?";
+    $sql = "SELECT `userid` FROM `users` WHERE email=?";
     if ($conn->prepare($sql))
     {
         $stmt->bindParam("s", $_POST['email']);
@@ -52,5 +52,5 @@
             $stmt->execute();
         }
     }
-    
+}   
     

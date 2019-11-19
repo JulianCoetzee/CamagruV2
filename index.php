@@ -1,7 +1,7 @@
 <?php
 
-    require_once "location: config/setup.php";
-    start_session() or die("Session Error");
+    require_once "config/setup.php";
+    session_start() or die("Session Error");
 
 ?> 
 <!-- <i class="fas fa-cheese"></i> -->
@@ -19,11 +19,11 @@
                 <label for="username">
                     <i class="fas fa-cheese"></i>
                 </label>
-                <input type="text" name="Username" placeholder="Username" id="username" required>
+                <input type="text" name="Username" placeholder="Username" id="username" required><br />
                 <label>
                     <i class="fas fa-key"></i>
                 </label>
-                <input type="password" name="Password" placeholder="Password" id="password" required>
+                <input type="password" name="Password" placeholder="Password" id="password" required><br />
                 <button type="submit" name="login" value="Login">Login</button>
             </form>
         </div>

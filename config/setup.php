@@ -37,6 +37,7 @@
             `comid` INT AUTO_INCREMENT PRIMARY KEY,
             `userid` VARCHAR(255) NOT NULL,
             `imgid` VARCHAR(255) NOT NULL,
+            `comcon` LONGBLOB NOT NULL,
             `comdate` DATETIME NOT NULL)";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
@@ -44,5 +45,5 @@
     
     catch (PDOException $error)
     {
-        echo "Connection Failed". $error->getMessage();
+        echo "Connection Failed: ". $error->getMessage();
     }
