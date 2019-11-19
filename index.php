@@ -2,7 +2,10 @@
 
     require_once "config/setup.php";
     session_start() or die("Session Error");
-
+    if (!isset($_SESSION['active_user']))
+    {
+        header("pages/dashboard.php");
+    }
 ?> 
 <!-- <i class="fas fa-cheese"></i> -->
 <!-- <i class="fas fa-key"></i> -->
@@ -26,6 +29,24 @@
                 <input type="password" name="Password" placeholder="Password" id="password" required><br />
                 <button type="submit" name="login" value="Login">Login</button>
             </form>
+            <a href="forgot.php">I forgot my keys!</a>
         </div>
+        
+        <?php
+        
+        if (! empty(htmlentities($_POST['username'])) and !empty(htmlentities($_POST['password'])) and $_POST['login'] == "OK")
+        {
+            $username = trim(htmlentities($_POST['username']));
+            $passwd = htmlentities($_POST['password']);
+            $conn = new Users($username, $password, "", "", "");
+            $conn->connectUser();
+            if ($conn->message)
+              echo '<div style="color:red;">' . $conn->message . '</div>';
+            else {
+              $_SESSION['active_user'] = $username;
+            //   echo '<script> location.replace("../index.php"); </script>';
+            }
+        ?>
+
     </body>
 </html>

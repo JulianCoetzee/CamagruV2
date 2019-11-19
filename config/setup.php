@@ -12,6 +12,8 @@
             `email` VARCHAR(255) NOT NULL,
             `uhpw` VARCHAR(255) NOT NULL,
             `salt` VARCHAR(255) NOT NULL,
+            `token` VARCHAR(255),
+            `tokenexpires` DATETIME,
             `verified` BOOLEAN DEFAULT 0 NOT NULL,
             `createdate` DATETIME NOT NULL)";
         $stmt = $conn->prepare($sql);
