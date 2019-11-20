@@ -42,10 +42,12 @@
             $conn->connectUser();
             if ($conn->message)
               echo '<div style="color:red;">' . $conn->message . '</div>';
-            else {
+            else 
+            {
               $_SESSION['active_user'] = $username;
             //   echo '<script> location.replace("../index.php"); </script>';
             }
+        }
         ?>
 
     </body>
