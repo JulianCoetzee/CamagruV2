@@ -8,7 +8,7 @@ session_start() or die("Session Error");
 <html>
 <title>Camagru Dashboard</title>
 <head>
+</head>
 <body>
 </body>
-</head>
 </html>

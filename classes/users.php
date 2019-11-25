@@ -49,7 +49,7 @@ class users
     {
         try
         {
-            if (strlen($this->password) > 255)
+            if (strlen($this->password) > 30)
                 return $this->err_msg = "Password cannot exceed 30 characters";
             if ($this->password != $this->confirmpassword)
                 return $this->err_msg= "Passwords do not match";
@@ -70,7 +70,7 @@ class users
             if ($user['verified'] == 0)
                 return $this->err_msg = "Account unverified";
             if ($user['uhpw'] != hash('whirlpool', $this->password))
-                return $this->err_msg = "Incorrect pasword";
+                return $this->err_msg = "Incorrect password";
         }
         catch (PDOException $error) 
         {
@@ -78,7 +78,42 @@ class users
             //die();
         }
     }
+    private function new_user()
+    {
+        try
+        {
+            if (strlen($this->username) > 30)
+                return $this->err_msg = "Username cannot exceed 30 characters";
+            $newuser = fetch_user();
+            if ($newuser)
+                return $this->err_msg = "Username already taken";
+            self::password_check();
+            if ($this->err_msg != NULL)
+                return ;
+            if (filter_var($this->email, FILTER_VALIDATE_EMAIL) === false)
+                return $this->err_msg = "Email invalid";
+        }
+        catch (PDOException $error)
+            {
+                echo "Connection Failed: ". $error->getMessage();
+                //die();
+            }
+    }
     public function user_confirm()
+    {
+        try
+        {
+            if (new_user())
+            {
+                
+            }
+        }
+        catch (PDOException $error)
+        {
+            echo "Connection Failed: ". $error->getMessage();
+            //die();
+        }
+    }
 }
 
 ?>
