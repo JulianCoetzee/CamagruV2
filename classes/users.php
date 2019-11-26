@@ -15,8 +15,8 @@ class users
         try
         {
             require_once "../config/setup.php";
-            $this->$conn = new PDO($dsn, $username, $password);
-            $this->$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->conn = new PDO($dsn, $username, $password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->username = $username;
             $this->email = $email;
             $this->uhpw = $password;
@@ -34,7 +34,7 @@ class users
         try
         {
             $sql = "SELECT * FROM `users` WHERE `username`=?";
-            $stmt = $this->$conn->prepare($sql);
+            $stmt = $this->conn->prepare($sql);
             $stmt->execute(array($this->username));
             $user_array = $stmt->fetch(PDO::FETCH_ASSOC);
             return ($user_array);
@@ -105,7 +105,7 @@ class users
         {
             if (new_user())
             {
-                
+                $this->token = bin2hex(random_bytes(16));
             }
         }
         catch (PDOException $error)
