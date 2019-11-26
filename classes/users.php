@@ -99,6 +99,32 @@ class users
                 //die();
             }
     }
+    public function send_confirm()
+    {
+        self::user_check();
+        if ($this->err_msg)
+            return ;
+        $token = bin2hex(random_bytes(16));
+        $url = "localhost:8080/CamagruTakeTwo/phppages/dashboard?q=". $token;
+        date_default_timezone_set();
+            $createdate = date("Ymd H: m: s");
+        $tokenexpires = date("Ymd H: m: s", strtotime($createdate .'+ 2 days'));
+        try
+        {
+            $sql = "INSERT INTO `users`(`username`, `uhpw`, `email`, `token`, `tokenexpires`, `createdate`) VALUES(?, ?, ?, ?, ?, ?)";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(array($this->username, hash('whirlpool', $this->uhpw), $this->email, $token, $tokenspires, $createdate));
+            $sql2 = "DELETE FROM `users` WHERE `tokenexpires`< NOW() AND `verified` = 0";
+            $stmt = $this->conn->prepare($sql2);
+            $stmt->execute();
+            require_once "../webapp/confrim_mail.php";
+        }
+        catch (PDOException $error)
+        {
+            echo "Connection Failed: ". $error->getMessage();
+            //die();
+        }
+    }
     public function user_confirm()
     {
         try
