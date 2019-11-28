@@ -11,7 +11,7 @@
 <!-- <i class="fas fa-key"></i> -->
 <html>
     <head>
-        <meta charset = utf8>
+        <meta charset = utf-8>
         <title>Camagru Login</title>
         <link rel="stylesheet" href="http://use.fontawesome.com/releases/v5.7.1/css/all.css">
     </head>

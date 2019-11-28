@@ -125,6 +125,28 @@ class users
             //die();
         }
     }
+    public  function  resetPassword()
+    {
+        try
+        {
+          $sql = $this->conn->prepare("SELECT * FROM `users` WHERE `token`=?" );
+          $stmt = $req->execute(array($this->token));
+          $user = $req->fetch(PDO::FETCH_ASSOC);
+          if (!$user)
+            return  $this->err_msg = "The link has expired.";
+        self::password_check();
+          if ($this->err_msg != NULL)
+            return ;
+          $sql = $this->conn->prepare("UPDATE `users` SET `uhpw`=? WHERE `token`=?" );
+          $stmt->execute(array(hash('whirlpool', $this->uhpw), $this->token));
+          $this->err_msg = "Your password has been changed.";
+        }
+        catch (PDOException $error)
+        {
+            echo "Connection Failed: ". $error->getMessage();
+            //die();
+        }
+    }
     public function user_confirm()
     {
         try

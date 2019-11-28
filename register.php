@@ -7,14 +7,14 @@
 
 <html>
     <head>
-        <meta charset = utf8>
+        <meta charset = utf-8>
         <title>Camagru SignUp</title>
         <link rel="stylesheet" href="http://use.fontawesome.com/releases/v5.7.1/css/all.css">
     </head>
     <body>
         <div class="login">
             <h1>Sign Up</h1>
-            <form action="authenticate.php" method="POST">
+            <form action="signup.php" method="POST">
                 <label for="username">
                     <i class="fas fa-cheese">Username</i>
                 </label>
