@@ -2,7 +2,7 @@
 
 class users
 {
-    private $username;
+    private $user;
     private $conn;
     private $email;
     private $password;
@@ -10,18 +10,18 @@ class users
     private $token;
     private $err_msg;
 
-    public function __construct($username, $password, $email, $confirmpassword, $token)
+    public function __construct($user, $password, $email, $confirmpassword)//, $token)
     {
         try
         {
-            require_once "../config/setup.php";
+            require_once "config/setup.php";
             $this->conn = new PDO($dsn, $username, $password);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $this->username = $username;
+            $this->username = $user;
             $this->email = $email;
             $this->uhpw = $password;
             $this->confirmpassword = $confirmpassword;
-            $this->token = $token;
+            //$this->token = $token;
         }
         catch (PDOException $error)
         {
@@ -35,7 +35,7 @@ class users
         {
             $sql = "SELECT * FROM `users` WHERE `username`=?";
             $stmt = $this->conn->prepare($sql);
-            $stmt->execute(array($this->username));
+            $stmt->execute(array($this->user));
             $user_array = $stmt->fetch(PDO::FETCH_ASSOC);
             return ($user_array);
         }
@@ -70,7 +70,7 @@ class users
             if ($user['verified'] == 0)
                 return $this->err_msg = "Account unverified";
             if ($user['uhpw'] != hash('whirlpool', $this->password))
-                return $this->err_msg = "Incorrect password";
+                return $this->err_msg = "Incorrect password. Wrong keys.";
         }
         catch (PDOException $error) 
         {
@@ -82,7 +82,7 @@ class users
     {
         try
         {
-            if (strlen($this->username) > 30)
+            if (strlen($this->user) > 30)
                 return $this->err_msg = "Username cannot exceed 30 characters";
             $newuser = fetch_user();
             if ($newuser)
@@ -129,7 +129,7 @@ class users
     {
         try
         {
-          $sql = $this->conn->prepare("SELECT * FROM `users` WHERE `token`=?" );
+          $sql = $this->conn->prepare("SELECT * FROM `users` WHERE `token`=?");
           $stmt = $req->execute(array($this->token));
           $user = $req->fetch(PDO::FETCH_ASSOC);
           if (!$user)
@@ -137,7 +137,7 @@ class users
         self::password_check();
           if ($this->err_msg != NULL)
             return ;
-          $sql = $this->conn->prepare("UPDATE `users` SET `uhpw`=? WHERE `token`=?" );
+          $sql = $this->conn->prepare("UPDATE `users` SET `uhpw`=? WHERE `token`=?");
           $stmt->execute(array(hash('whirlpool', $this->uhpw), $this->token));
           $this->err_msg = "Your password has been changed.";
         }
@@ -147,6 +147,24 @@ class users
             //die();
         }
     }
+    public function db_connect()
+        {
+            try
+            {
+                $user = $this->fetch_user();
+                if (!$user)
+                    return $this->err_msg = "Cannot find this account. No cheese.";
+                if ($user['verified'] == 0)
+                    return $this->err_msg = "Your account has not been verified yet. <br /> Please check your email.";
+                if ($user['uhpw'] != hash('whirlpool', $this->password))
+                    return $this->err_msg = "Password incorrect. Wrong keys, no cheese.";
+            }
+            catch (PDOException $error)
+            {
+                echo "Connection Failed: ". $error->getMessage();
+                //die();
+            }
+        }
     public function user_confirm()
     {
         try
@@ -162,6 +180,29 @@ class users
             //die();
         }
     }
-}
-
+    public function send_pw()
+        {
+            try
+            {
+                $user = $this->fetch_user();
+                if (!$user)
+                    return $this->err_msg = "Cannot find this account.";
+                $email = $user['email'];
+                $token = bin2hex(random_bytes(16));
+                $url = "localhost:8080/camagru/phppages/pw.php?q=" . $token;
+                date_default_timezone_set('UTC');
+                $doc = date("d/m/Y H:i:s");
+                $tokenexpires = date("d/m/Y H:i:s", strtotime($doc . ' + 2 days'));
+                $sql = $this->conn->prepare("UPDATE `users` SET `token`=?, `tokenexpires`=? WHERE `username`=?");
+                $sql->execute(array($token, $tokenexpires, $this->user));
+                $sql = $this->conn->prepare("UPDATE `users` SET `token`=?, `tokenexpires`=? WHERE `tokenexpires` < NOW() AND `verified`=1");
+                $sql->execute(array(NULL, NULL));
+                require_once '../pwd_email.php';
+            }
+            catch (PDOException $error)
+            {
+                die('Connection Failed' . $error->getMessage());
+            }
+        }
+    }
 ?>

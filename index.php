@@ -6,6 +6,12 @@
     {
         header("pages/dashboard.php");
     }
+
+    // login
+    // forgot pwd link - forgotpwd.php (require)
+    // register link - registration.php (require)
+    // 
+
 ?> 
 <!-- <i class="fas fa-cheese"></i> -->
 <!-- <i class="fas fa-key"></i> -->
