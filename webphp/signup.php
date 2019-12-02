@@ -11,11 +11,12 @@ if (isset($_POST['submit'])) {
 	}
 
     $username = $_POST['username'];
-    // $username = $_POST['firstname'];
-    // $username = $_POST['surname'];
+    // $firstname = $_POST['firstname'];
+    // $surname = $_POST['surname'];
     $email = $_POST['username'];
     $password = hash("whirlpool", $_POST['password']);
-    $confirmpassword = hash("whirlpool", $_POST['confirmpassword']);
+	$confirmpassword = hash("whirlpool", $_POST['confirmpassword']);
+	$tokey = bin2hex(random_bytes(16));
 
     if (empty($username) || empty($email) || empty($password) || empty($confirmpassword))
     {
@@ -25,16 +26,21 @@ if (isset($_POST['submit'])) {
 	}
     else 
     {
-		$stmt = $conn->prepare("INSERT INTO `users`(`username`, `passwd`, `email`, `verified`, `verif_tokey`, `notifications`) VALUES (");
-		$stmt->bindParam(':pass', $password);
+		$stmt = $conn->prepare("INSERT INTO `users`(`username`, `passwd`, `email`, `verified`, `verif_tokey`, `notifications`) VALUES (':user', ':pass', ':email' ,':verified', ':veriftokey', ':notif')");
 		$stmt->bindParam(':user', $username);
+		$stmt->bindParam(':pass', $password);
+		$stmt->bindParam(':email', $email);
+		$stmt->bindParam(':verified', 0);
+		$stmt->bindParam(':veriftokey', $tokey);
+		$stmt->bindParam(':notif', 1);
+
         if (!$stmt->execute()) 
         {
 			echo "<script>alert('SQL ERROR: 1')</script>";
 			echo "<script>window.open('../webpages/loginlive.php?error=sqlerror','_self')</script>";
 			exit();
 		}
-		$result = $stmt->fetch(PDO::FETCH_ASSOC);
+		// $result = $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 	$conn = NULL;
 }

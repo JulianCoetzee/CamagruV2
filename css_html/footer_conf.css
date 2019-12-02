@@ -9,16 +9,19 @@
     flex: none;
     text-align: center;
     padding-bottom: 0.4%;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .julian{
     position: absolute;
     bottom: 0px;
     left: 0px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .copyright{
     position: absolute;
     bottom: 0;
     right: 0;
+    font-family: 'Courier New', Courier, monospace;
 }

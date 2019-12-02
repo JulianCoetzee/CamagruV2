@@ -19,7 +19,7 @@
 
 .formbox{
     position: absolute;
-    /* background-color: you can choose */
+    background-color:  lightgoldenrodyellow;
     height: 400px;
     width: 300px;
     padding: 50px;
@@ -28,13 +28,16 @@
     left: 50%;
     margin-top: -350px;
     margin-left: -200px;
-    height: 450px;
+    height: auto;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 15px;
 }
 
 ::placeholder {
     text-align: center;
     font-size: 20px;
-    color: black;
+    color: darkslategrey;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 /*input highlighting removal*/
@@ -51,20 +54,22 @@ button:focus {
     text-align: center;
     position: relative;
     background-color: transparent;
-    margin-top: 40px;
-    font-size: 25px;
+    margin-top: 5px;
+    font-size: 20px;
     border: transparent;
     border: none;
     border-bottom: 1px solid #000000;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .formstuff{
     position: relative;
-    width: 80px;
+    width: 90px;
     margin-left: 88px;
     margin-top: 40px;
     font-size: 20px;
     background-color: rgb(238, 238, 238);
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .wordstuff{
@@ -74,13 +79,13 @@ button:focus {
 
 .camagru_header{
     text-align: center;
-    top: -25px;
+    top: 1px;
     position: relative;
     right: 25px;
     width: 100%;
     font-size: 40px;
     padding-left: 30px;
-    /*font-family: you can choose*/
+    font-family: 'Courier New', Courier, monospace;
 }
 
 /*.the-line {
