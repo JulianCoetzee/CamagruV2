@@ -6,7 +6,7 @@
     </head>
     <body>
         <div class="login">
-            <h1>Login</h1>
+            <h2>Login</h2>
             <form action="../webphp/login.php" method="POST">
                 <label for="username">
                     <i class="fas fa-cheese"></i>
