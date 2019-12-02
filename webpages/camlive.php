@@ -62,11 +62,13 @@
         const Cookie = document.getElementById('Cookie');
         const Horns = document.getElementById('Horns');
         const Sunflower = document.getElementById('Sunflower');
+        const Savebutton = document.getElementById('save');
         const constraints = {video: true, audio: false};
 
         Capturebutton.addEventListener('click', () =>
         {
             context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+            var image = canvas.toDataURL('image/png');
         });
         Cookie.addEventListener('click', () =>
         {
@@ -84,6 +86,35 @@
         {
             videoElement.srcObject = stream;
         });
+        // var ajax = new XMLHttpRequest();   
+        // ajax.open("POST",'testSave.php',false);
+        // ajax.setRequestHeader('Content-Type', 'application/upload');
+        // ajax.send(canvasData);
+
+
+        // document.getElementById('capture').addEventListener('click', function() {
+        // context.drawImage(video, 0, 0, 400, 300);
+        // //context.drawImage(photo, 0, 0, 100, 100);
+        // var image = canvas.toDataURL('image/png'); //.replace('image/png', 'image/octet-stream'); //my image URL
+        //     //window.location.href=image;
+        // var form = document.createElement("form");
+        // form.action="picform.php";
+        // form.method="post";
+        // var inputtextbox = document.createElement("input");
+        // inputtextbox.type = "hidden";
+        // inputtextbox.value= image;
+        // inputtextbox.name = 'base64';
+        // form.appendChild(inputtextbox);
+        // var sticker = photo.src;
+        // sticker = sticker.replace(/^.*[\\\/]/, '');
+        // var textbox = document.createElement("input");
+        // textbox.type = "hidden";
+        // textbox.value= sticker ;
+        // textbox.name = 'sticker';
+        // form.appendChild(textbox);
+        // document.body.appendChild(form);
+        // form.submit();
+    });
     </script>
 </body>
 </html>

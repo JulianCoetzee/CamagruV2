@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
 	$username = $_POST['username'];
 
 	if (empty($password) || empty($username)) {
-		echo "<script>alert('Please fill in all fields!')</script>";
+		echo "<script>alert('Complete all fields!')</script>";
 		echo "<script>window.open('../webpages/loginlive.php?error=emptyfields','_self')</script>";
 		exit();
 	}

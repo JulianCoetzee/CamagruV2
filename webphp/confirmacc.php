@@ -33,14 +33,14 @@
         else
         {
             echo "<h2>Your details were not found.<h2>";
-            echo "<form action='../pages/create.php' method='post'><input type='submit' value='Create account'></input></form>";
+            echo "<form action='../webphp/create.php' method='post'><input type='submit' value='Create account'></input></form>";
         }
         $conn = NULL;
     }
     else
     {
         echo "<h2>No verification token found! Please try again.<h2>";
-        echo "<form action='../pages/create.php' method='post'><input type='submit' value='Create account'></input></form>";
+        echo "<form action='../webphp/signup.php' method='post'><input type='submit' value='Create account'></input></form>";
         exit();
     }
     ?>

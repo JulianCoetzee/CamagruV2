@@ -23,7 +23,7 @@
                 <label for="confirmpassword">
                     <i class="fas fa-key"></i>
                 </label>
-                <input type="password" name="confirmpassword" placeholder=" Confirm Password" id="confirmpassword" pattern="[a-zA-Z0-9]{6-30}" title="Your password must contain at least 6 characters including 1 UPPERCASE and 1 number and no special characters" required="" oninvalid="this.setCustomValidity('Correct keys please')" oninput="this.setCustomValidity('')"><br />
+                <input type="password" name="confirmpassword" placeholder="Confirm Password" id="confirmpassword" pattern="[a-zA-Z0-9]{6-30}" title="Your password must contain at least 6 characters including 1 UPPERCASE and 1 number and no special characters" required="" oninvalid="this.setCustomValidity('Correct keys please')" oninput="this.setCustomValidity('')"><br />
                 <button type="submit" name="register" value="Sign Up">SignUp</button>
             </form>
         </div>

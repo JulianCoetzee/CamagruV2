@@ -9,8 +9,8 @@ if (isset($_POST['submit']))
     }
     require 'database2.php';
     $sender = $_POST['email'];
-    $stmt = $conn->prepare("SELECT email FROM users WHERE email= :mail");
-    $stmt->bindParam(':mail', $sender);
+    $stmt = $conn->prepare("SELECT email FROM users WHERE email= :email");
+    $stmt->bindParam(':email', $sender);
     if (!$stmt->execute())
     {
 		echo "<script>alert('ERROR: 1')</script>";
@@ -47,5 +47,4 @@ if (isset($_POST['submit']))
 }
 else
     echo "<script>window.open('../webphp/resetpwd.php?','_self')</script>";
-
 ?>

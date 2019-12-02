@@ -16,7 +16,7 @@ function user_table()
             $sql = "CREATE TABLE IF NOT EXISTS users(
                 username varchar(15) PRIMARY KEY NOT NULL,
                 passwd varchar(4096) NOT NULL,
-                name_user varchar(20) NOT NULL,
+                firstname varchar(20) NOT NULL,
                 surname varchar(20) NOT NULL,
                 email varchar(50) NOT NULL,
                 verified int(1) NOT NULL,
