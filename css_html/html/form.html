@@ -1,0 +1,27 @@
+<html>
+<head>
+        <link rel="stylesheet" href="../form.css">
+        <link rel="stylesheet" href="../layout.css">
+</head>
+<body>
+        <div class="formbox">
+                <!-- Form stuff -->
+                <div class="camagru_header">
+                    Create a Camagru Account
+                </div>
+                <div class="client_info">
+                    <form action="../webphp/create.php" method="POST">
+                        <input type="text" name="name" class="fieldbox" placeholder="Name" required>
+                        <input type="text" name="surname" class="fieldbox" placeholder="Surname" required>
+                        <input type="text" name="username" class="fieldbox" placeholder="Username" required>
+                        <input type="email" name="email" class="fieldbox" placeholder="Email" required>
+                        <input type="password" name="password" class="fieldbox" placeholder="Password" required>
+                        <input type="submit" name="submit" value="Create" class="formstuff">
+                    </form>
+                </div>
+                <button class="free" onclick="window.location.href = 'feedme.php';">
+                    Free Browse
+                </button>
+            </div>
+</body>
+</html>

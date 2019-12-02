@@ -1,0 +1,92 @@
+.free {
+    /* border-color: you can choose */
+    font-size: 20px;
+    border-radius: 7px;
+    margin-bottom: -100px;
+    margin-left: -50px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(226, 226, 226);
+    /* box-shadow: you can choose*/
+}
+
+.client_info {
+    margin-left: 25px;
+    height: 150px;
+}
+
+.formbox{
+    position: absolute;
+    /* background-color: you can choose */
+    height: 400px;
+    width: 300px;
+    padding: 50px;
+    padding-top: 15px;
+    top: 50%;
+    left: 50%;
+    margin-top: -350px;
+    margin-left: -200px;
+    height: 450px;
+}
+
+::placeholder {
+    text-align: center;
+    font-size: 20px;
+    color: black;
+}
+
+/*input highlighting removal*/
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.fieldbox {
+    width: fit-content;
+    text-align: center;
+    position: relative;
+    background-color: transparent;
+    margin-top: 40px;
+    font-size: 25px;
+    border: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+}
+
+.formstuff{
+    position: relative;
+    width: 80px;
+    margin-left: 88px;
+    margin-top: 40px;
+    font-size: 20px;
+    background-color: rgb(238, 238, 238);
+}
+
+.wordstuff{
+    padding-left: 40px;
+    font-size: 25;
+}
+
+.camagru_header{
+    text-align: center;
+    top: -25px;
+    position: relative;
+    right: 25px;
+    width: 100%;
+    font-size: 40px;
+    padding-left: 30px;
+    /*font-family: you can choose*/
+}
+
+/*.the-line {
+    position: relative;
+    top: -250px;
+    height: 550px;
+    width: 400px;
+    left: -50px;
+} */
