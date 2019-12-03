@@ -68,7 +68,7 @@
         Capturebutton.addEventListener('click', () =>
         {
             context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
-            var image = canvas.toDataURL('image/png');
+            var canvasData = canvas.toDataURL('image/png');
         });
         Cookie.addEventListener('click', () =>
         {
