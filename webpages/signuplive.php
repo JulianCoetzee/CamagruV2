@@ -10,7 +10,7 @@
             Sign Up
         </div>
         <div class="formbox">
-            <form action="../signup.php" method="POST">
+            <form action="../webphp/signup.php" method="POST">
                 <label for="username">
                     <i class="fas fa-cheese"></i>
                 </label>
