@@ -24,7 +24,8 @@ if (isset($_POST['login'])) {
 		$stmt = $conn->prepare("SELECT * FROM users WHERE passwd= :pass AND username= :user");
 		$stmt->bindParam(':pass', $password);
 		$stmt->bindParam(':user', $username);
-		if (!$stmt->execute()) {
+		if (!$stmt->execute()) 
+		{
 			echo "<script>alert('SQL ERROR: 1')</script>";
 			echo "<script>window.open('../webpages/loginlive.php?error=sqlerror','_self')</script>";
 			exit();

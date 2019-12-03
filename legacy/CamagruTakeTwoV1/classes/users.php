@@ -106,7 +106,7 @@ class users
             return ;
         $token = bin2hex(random_bytes(16));
         $url = "localhost:8080/CamagruTakeTwo/phppages/dashboard?q=". $token;
-        date_default_timezone_set();
+        date_default_timezone_set(UTC);
             $createdate = date("Ymd H: m: s");
         $tokenexpires = date("Ymd H: m: s", strtotime($createdate .'+ 2 days'));
         try

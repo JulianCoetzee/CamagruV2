@@ -10,6 +10,12 @@ if (isset($_POST['register']))
 		echo "<script>alert('Please logout first!!')</script>";
 		echo "<script>window.open('../webpages/signuplive.php','_self')</script>";
 	}
+	if (filter_var($$_POST['email'], FILTER_VALIDATE_EMAIL) === 0)
+	{
+		echo "<script>alert('Email invalid')</script>";
+		echo "<script>window.open('../webpages/signuplive.php','_self')</script>";
+		exit();
+	}
 	if (strlen($_POST['password']) < 6)
 	{
 		echo "<script>alert('Please make sure your password is 6 characters or longer.')</script>";
@@ -49,28 +55,54 @@ if (isset($_POST['register']))
 		echo "<script>window.open('../webpages/signuplive.php?error=emptyfields','_self')</script>";
 		exit();
 	}
-    else 
-    {
-		$stmt = $conn->prepare("INSERT INTO `users`(`username`, `passwd`, `email`, `verified`, `verif_tokey`, `notifications`) VALUES ( :user, :pass, :email, :verified, :verif_tokey, :notif)");
-		$stmt->bindParam(':user', $username);
-		$stmt->bindParam(':pass', $password);
+	else
+	{
+		$stmt = $conn->prepare("SELECT * FROM users WHERE email= :email OR username= :user");
 		$stmt->bindParam(':email', $email);
-		$stmt->bindParam(':verified', $verified);
-		$stmt->bindParam(':verif_tokey', $tokey);
-		$stmt->bindParam(':notif', $notified);
-
-        if (!$stmt->execute()) 
-        {
+		$stmt->bindParam(':user', $username);
+		if (!$stmt->execute()) 
+		{
 			echo "<script>alert('SQL ERROR: 1')</script>";
 			echo "<script>window.open('../webpages/signuplive.php?error=sqlerror','_self')</script>";
 			exit();
 		}
-		else 
+		$result = $stmt->fetch(PDO::FETCH_ASSOC);
+		if ($result['username'] === $username)
 		{
-			echo "<script>alert('Success! Please check your email to verify')</script>";
-			echo "<script>window.open('../webpages/loginlive.php','_self')</script>";
+			echo "<script>alert('Username taken!')</script>";
+			echo "<script>window.open('../webpages/signuplive.php?error=usernametaken','_self')</script>";
 			exit();
 		}
+		else if ($result['email'] === $email)
+		{
+			echo "<script>alert('Email already in use!')</script>";
+			echo "<script>window.open('../webpages/signuplive.php?error=emailtaken','_self')</script>";
+			exit();
+		}
+		else 
+		{
+			$stmt = $conn->prepare("INSERT INTO `users`(`username`, `passwd`, `email`, `verified`, `verif_tokey`, `notifications`) VALUES (:user, :pass, :email, :verified, :verif_tokey, :notif)");
+			$stmt->bindParam(':user', $username);
+			$stmt->bindParam(':pass', $password);
+			$stmt->bindParam(':email', $email);
+			$stmt->bindParam(':verified', $verified);
+			$stmt->bindParam(':verif_tokey', $tokey);
+			$stmt->bindParam(':notif', $notified);
+
+			if (!$stmt->execute()) 
+			{
+				echo "<script>alert('SQL ERROR: 1')</script>";
+				echo "<script>window.open('../webpages/signuplive.php?error=sqlerror','_self')</script>";
+				exit();
+			}
+			else 
+			{
+				echo "<script>alert('Success! Please check your email to verify your account')</script>";
+				echo "<script>window.open('../webpages/loginlive.php','_self')</script>";
+				exit();
+			}
+		}
+	
 	}
 	$conn = NULL;
 }

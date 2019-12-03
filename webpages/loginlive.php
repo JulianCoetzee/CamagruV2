@@ -15,11 +15,11 @@
                 <label for="username">
                     <i class="fas fa-cheese"></i>
                 </label>
-                <input type="text" name="Username" placeholder="Username" id="username" class="fieldbox" required><br />
+                <input type="text" name="username" placeholder="Username" id="username" class="fieldbox" required><br />
                 <label for=password>
                     <i class="fas fa-key"></i>
                 </label>
-                <input type="password" name="Password" placeholder="Password" id="password" class="fieldbox" required><br />
+                <input type="password" name="password" placeholder="Password" id="password" class="fieldbox" required><br />
                 <button type="submit" name="login" class="formstuff" value="Login">Login</button>
             </form>
             <a href="forgot.php">I forgot my keys!</a>
