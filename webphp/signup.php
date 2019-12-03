@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
     if (empty($username) || empty($email) || empty($password) || empty($confirmpassword))
     {
 		echo "<script>alert('Complete all fields!')</script>";
-		echo "<script>window.open('../webpages/loginlive.php?error=emptyfields','_self')</script>";
+		echo "<script>window.open('../webpages/signuplive.php?error=emptyfields','_self')</script>";
 		exit();
 	}
     else 
@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
         if (!$stmt->execute()) 
         {
 			echo "<script>alert('SQL ERROR: 1')</script>";
-			echo "<script>window.open('../webpages/loginlive.php?error=sqlerror','_self')</script>";
+			echo "<script>window.open('../webpages/signuplive.php?error=sqlerror','_self')</script>";
 			exit();
 		}
 		// $result = $stmt->fetch(PDO::FETCH_ASSOC);
