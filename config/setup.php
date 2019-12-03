@@ -16,10 +16,10 @@ function user_table()
             $sql = "CREATE TABLE IF NOT EXISTS users(
                 username varchar(15) PRIMARY KEY NOT NULL,
                 passwd varchar(4096) NOT NULL,
-                firstname varchar(20) NOT NULL,
-                surname varchar(20) NOT NULL,
+                -- firstname varchar(20) NOT NULL,
+                -- surname varchar(20) NOT NULL,
                 email varchar(50) NOT NULL,
-                verified int(1) NOT NULL,
+                verified int(1) DEFAULT '0' NOT NULL,
                 verif_tokey VARCHAR(8000) NOT NULL,
                 notifications int(1) DEFAULT '1' NOT NULL,
                 user_img LONGBLOB)";

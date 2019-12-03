@@ -1,6 +1,7 @@
 <?php
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['register']))
+{
 	require 'database2.php';
 
 	session_start();
@@ -9,14 +10,38 @@ if (isset($_POST['submit'])) {
 		echo "<script>alert('Please logout first!!')</script>";
 		echo "<script>window.open('../webpages/signuplive.php','_self')</script>";
 	}
+	if (strlen($_POST['password']) < 6)
+	{
+		echo "<script>alert('Please make sure your password is 6 characters or longer.')</script>";
+		echo "<script>window.open('../webpages/signuplive.php','_self')</script>";
+		exit();
+	}
+	$Lower = preg_match('/[a-z]/', $_POST['password']);
+	$Upper = preg_match('/[A-Z]/', $_POST['password']);
+	$Digit = preg_match('/[0-9]/', $_POST['password']);
+	//$Special = preg_match('/[\W]+/', $pwd);
+	if (!$Upper || !$Lower || !$Digit) //|| !$Special)
+	{
+		echo "<script>alert('Please make sure your password has an array of lowercase letters, uppercase letters, at least one digit and at least one special character.')</script>";
+		echo "<script>window.open('../webpages/signuplive.php','_self')</script>";
+		exit();
+	}
+	if ($_POST['password'] !== $_POST['confirmpassword']) 
+	{
+		echo "<script>alert('Your passwords do not match! Please try again.')</script>";
+		echo "<script>window.open('../webpages/signuplive.php?error=passwordsdifference','_self')</script>";
+		exit();		
+	}
 
     $username = $_POST['username'];
     // $firstname = $_POST['firstname'];
     // $surname = $_POST['surname'];
-    $email = $_POST['username'];
+    $email = $_POST['email'];
     $password = hash("whirlpool", $_POST['password']);
 	$confirmpassword = hash("whirlpool", $_POST['confirmpassword']);
+	$verified = 0;
 	$tokey = bin2hex(random_bytes(16));
+	$notified = 1;
 
     if (empty($username) || empty($email) || empty($password) || empty($confirmpassword))
     {
@@ -26,13 +51,13 @@ if (isset($_POST['submit'])) {
 	}
     else 
     {
-		$stmt = $conn->prepare("INSERT INTO `users`(`username`, `passwd`, `email`, `verified`, `verif_tokey`, `notifications`) VALUES (':user', ':pass', ':email' ,':verified', ':veriftokey', ':notif')");
+		$stmt = $conn->prepare("INSERT INTO `users`(`username`, `passwd`, `email`, `verified`, `verif_tokey`, `notifications`) VALUES ( :user, :pass, :email, :verified, :verif_tokey, :notif)");
 		$stmt->bindParam(':user', $username);
 		$stmt->bindParam(':pass', $password);
 		$stmt->bindParam(':email', $email);
-		$stmt->bindParam(':verified', 0);
-		$stmt->bindParam(':veriftokey', $tokey);
-		$stmt->bindParam(':notif', 1);
+		$stmt->bindParam(':verified', $verified);
+		$stmt->bindParam(':verif_tokey', $tokey);
+		$stmt->bindParam(':notif', $notified);
 
         if (!$stmt->execute()) 
         {
@@ -40,7 +65,12 @@ if (isset($_POST['submit'])) {
 			echo "<script>window.open('../webpages/signuplive.php?error=sqlerror','_self')</script>";
 			exit();
 		}
-		// $result = $stmt->fetch(PDO::FETCH_ASSOC);
+		else 
+		{
+			echo "<script>alert('Success! Please check your email to verify')</script>";
+			echo "<script>window.open('../webpages/loginlive.php','_self')</script>";
+			exit();
+		}
 	}
 	$conn = NULL;
 }

@@ -2,17 +2,17 @@
 
 function pwd_advcheck($pwd)
 {
-	if (strlen($pwd) < 8)
+	if (strlen($pwd) < 6)
 	{
-		echo "<script>alert('Please make sure your password is 8 characters or longer.')</script>";
+		echo "<script>alert('Please make sure your password is 6 characters or longer.')</script>";
 		echo "<script>window.open('../webphp/forgotpwd.php','_self')</script>";
 		exit();
 	}
 	$Lower = preg_match('/[a-z]/', $pwd);
 	$Upper = preg_match('/[A-Z]/', $pwd);
 	$Digit = preg_match('/[0-9]/', $pwd);
-	$Special = preg_match('/[\W]+/', $pwd);
-	if (!$Upper || !$Lower || !$Digit || !$Special)
+	//$Special = preg_match('/[\W]+/', $pwd);
+	if (!$Upper || !$Lower || !$Digit) //|| !$Special)
 	{
 		echo "<script>alert('Please make sure your password has an array of lowercase letters, uppercase letters, at least one digit and at least one special character.')</script>";
 		echo "<script>window.open('../webphp/forgotpwd.php','_self')</script>";

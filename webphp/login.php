@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['login'])) {
 	require 'database2.php';
 
 	session_start();
@@ -13,12 +13,14 @@ if (isset($_POST['submit'])) {
 	$password = hash("whirlpool", $_POST['password']);
 	$username = $_POST['username'];
 
-	if (empty($password) || empty($username)) {
+	if (empty($password) || empty($username))
+	{
 		echo "<script>alert('Complete all fields!')</script>";
 		echo "<script>window.open('../webpages/loginlive.php?error=emptyfields','_self')</script>";
 		exit();
 	}
-	else {
+	else
+	{
 		$stmt = $conn->prepare("SELECT * FROM users WHERE passwd= :pass AND username= :user");
 		$stmt->bindParam(':pass', $password);
 		$stmt->bindParam(':user', $username);
@@ -28,21 +30,24 @@ if (isset($_POST['submit'])) {
 			exit();
 		}
 		$result = $stmt->fetch(PDO::FETCH_ASSOC);
-		if ($result && ($result['verified'])) {
+		if ($result && ($result['verified']))
+		{
 			session_start();
 			$_SESSION['username'] = $username;
 			echo "<script>alert('Welcome $username!')</script>";
 			echo "<script>window.open('../webpages/feed.php?home=$username','_self')</script>";
 			exit();
 		}
-		else {
+		else
+		{
 			echo "<script>alert('Details entered have not been found! Consider creating an account.')</script>";
 			echo "<script>window.open('../webpages/loginlive.php?login=failure','_self')</script>";
 		}
 	}
 	$conn = NULL;
 }
-else {
+else
+{
 	echo "<script>window.open('../webpages/loginlive.php','_self')</script>";
 	exit();
 }
