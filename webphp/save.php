@@ -9,7 +9,7 @@ if (isset($_POST['img']))
   // $imageData = $_POST['canvasData'];
   $imageData = $_POST['img'];
 
-  $savename = $username.date_default_timezone_set('Africa/Johannesburg');
+  $savename = '@'.$username.date('Y-m-d H:i:sT');
   if (!$savename || !$imageData)
   {
     echo "<script>alert('Save error!')</script>";
@@ -24,7 +24,7 @@ if (isset($_POST['img']))
   // Need to decode before saving since the data received is already base64 encoded
   $unencodedsave=base64_decode($filtersave);
  
-  $savefile = fopen($savename.'.png', 'wb');
+  $savefile = fopen('../cheese/'.$savename.'.png', 'wb');
   // $savefile = fopen('/goinfre/jcoetzee/Desktop/PHP_live/apache2/htdocs/CamagruTakeTwo/new3.png', 'w');
   fwrite($savefile, $unencodedsave);
   fclose($savefile);
@@ -43,7 +43,7 @@ if (isset($_POST['img']))
 		$stmt->bindParam(':imgid', $savename);
     $stmt->bindParam(':img', $savefile);
     $stmt->bindParam(':user', $username);
-    $stmt->bindParam(':savedate', date_default_timezone_set('Africa/Johannesburg'));
+    $stmt->bindParam(':savedate', date('Y-m-d H:i:sT'));
     $stmt->bindParam(':likes', 0);
 		if (!$stmt->execute()) 
 		{
