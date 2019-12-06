@@ -14,7 +14,7 @@ function pwd_advcheck($pwd)
 	//$Special = preg_match('/[\W]+/', $pwd);
 	if (!$Upper || !$Lower || !$Digit) //|| !$Special)
 	{
-		echo "<script>alert('Please make sure your password has an array of lowercase letters, uppercase letters, at least one digit and at least one special character.')</script>";
+		echo "<script>alert('Please make sure your password has an array of lowercase letters, uppercase letters.')</script>";
 		echo "<script>window.open('../webphp/forgotpwd.php','_self')</script>";
 		exit();
 	}

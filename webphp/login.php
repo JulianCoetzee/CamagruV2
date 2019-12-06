@@ -3,12 +3,13 @@
 if (isset($_POST['login'])) {
 	require 'database2.php';
 
-	session_start();
-	if (isset($_SESSION['username']))
-	{
-		echo "<script>alert('Please logout first!!')</script>";
-		echo "<script>window.open('../webpages/loginlive.php','_self')</script>";
-	}
+	if (!isset($_SESSION['username']))
+		session_start();
+	//if (isset($_SESSION['username']))
+	//{
+	//	echo "<script>alert('Please logout first!!')</script>";
+	//	echo "<script>window.open('../webpages/loginlive.php','_self')</script>";
+	//}
 
 	$password = hash("whirlpool", $_POST['password']);
 	$username = $_POST['username'];

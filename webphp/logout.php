@@ -8,7 +8,8 @@ function logout()
     echo "<script>window.open('../webphp/login.php','_self')</script>";
 }
 
-session_start();
+if (!isset($_SESSION['username']))
+    session_start();
 if (isset($_SESSION['username']))
 {
         logout();

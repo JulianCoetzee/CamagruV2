@@ -1,10 +1,31 @@
 <?php
+function email_send($email, $tokey)
+{
+    $subject = "Camagru - Account Activation";
+	$message = "<a href='http://localhost:8080/CamagruTakeTwo/webphp/confirmacc.php?tokey=$tokey'>Click this link to verify your Camagru account!</a><br /><br />";
+	$message .= "Welcome aboard.<br /><br />Camagru_Team";
+    $headers = "From: no-reply_camagru@gmail.com \r\n";
+    $headers .= "MINE-Version: 1.0"."\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8"."\r\n";
+    $res = mail($email, $subject, $message, $headers);
+	if ($res)
+	{
+        echo "<script>alert('Success! Please check your email to verify your account.')</script>";
+        echo "<script>window.open('../webpages/loginlive.php','_self')</script>";
+    }
+	else
+	{
+        echo "<script>alert('Failed to send email!')</script>";
+        echo "<script>window.open('../webpages/signuplive.php','_self')</script>";
+    }
+}
 
 if (isset($_POST['register']))
 {
 	require 'database2.php';
 
-	session_start();
+	// if(!isset($_SESSION['username']))
+	//  	session_start();
 	if (isset($_SESSION['username']))
 	{
 		echo "<script>alert('Please logout first!!')</script>";
@@ -28,7 +49,7 @@ if (isset($_POST['register']))
 	//$Special = preg_match('/[\W]+/', $pwd);
 	if (!$Upper || !$Lower || !$Digit) //|| !$Special)
 	{
-		echo "<script>alert('Please make sure your password has an array of lowercase letters, uppercase letters, at least one digit and at least one special character.')</script>";
+		echo "<script>alert('Please make sure your password has an array of lowercase letters, uppercase letters and at least one digit.')</script>";
 		echo "<script>window.open('../webpages/signuplive.php','_self')</script>";
 		exit();
 	}
@@ -97,9 +118,7 @@ if (isset($_POST['register']))
 			}
 			else 
 			{
-				echo "<script>alert('Success! Please check your email to verify your account')</script>";
-				echo "<script>window.open('../webpages/loginlive.php','_self')</script>";
-				exit();
+				email_send($email, $tokey);
 			}
 		}
 	
@@ -108,7 +127,7 @@ if (isset($_POST['register']))
 }
 else 
 {
-	echo "<script>window.open('../webpages/loginlive.php','_self')</script>";
+	echo "<script>window.open('../webpages/signuplive.php','_self')</script>";
 	exit();
 }
 

@@ -21,7 +21,7 @@ function user_table()
                 email varchar(50) NOT NULL,
                 verified int(1) DEFAULT '0' NOT NULL,
                 verif_tokey VARCHAR(8000) NOT NULL,
-                notifications int(1) DEFAULT '1' NOT NULL,
+                -- notifications int(1) DEFAULT '1' NOT NULL,
                 user_img LONGBLOB)";
         $stmt = $conn->exec($sql);
         }
