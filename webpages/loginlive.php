@@ -22,7 +22,9 @@
                 <input type="password" name="password" placeholder="Password" id="password" class="fieldbox" required><br />
                 <button type="submit" name="login" class="formstuff" value="Login">Login</button>
             </form>
-            <a href="forgotpwd.php">I forgot my keys!</a>
+            <a href="resetrequestlive.php">I forgot my keys!</a><br />
+            <a href="signuplive.php">I'm new!</a>
+            
         </div>
     </body>
 </html>

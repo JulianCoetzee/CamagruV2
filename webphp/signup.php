@@ -31,7 +31,7 @@ if (isset($_POST['register']))
 		echo "<script>alert('Please logout first!!')</script>";
 		echo "<script>window.open('../webpages/signuplive.php','_self')</script>";
 	}
-	if (filter_var($$_POST['email'], FILTER_VALIDATE_EMAIL) === 0)
+	if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === 0)
 	{
 		echo "<script>alert('Email invalid')</script>";
 		echo "<script>window.open('../webpages/signuplive.php','_self')</script>";
@@ -68,7 +68,7 @@ if (isset($_POST['register']))
 	$confirmpassword = hash("whirlpool", $_POST['confirmpassword']);
 	$verified = 0;
 	$tokey = bin2hex(random_bytes(16));
-	$notified = 1;
+	//$notified = 1;
 
     if (empty($username) || empty($email) || empty($password) || empty($confirmpassword))
     {
@@ -102,13 +102,13 @@ if (isset($_POST['register']))
 		}
 		else 
 		{
-			$stmt = $conn->prepare("INSERT INTO `users`(`username`, `passwd`, `email`, `verified`, `verif_tokey`, `notifications`) VALUES (:user, :pass, :email, :verified, :verif_tokey, :notif)");
+			$stmt = $conn->prepare("INSERT INTO `users`(`username`, `passwd`, `email`, `verified`, `verif_tokey`) VALUES (:user, :pass, :email, :verified, :verif_tokey)");
 			$stmt->bindParam(':user', $username);
 			$stmt->bindParam(':pass', $password);
 			$stmt->bindParam(':email', $email);
 			$stmt->bindParam(':verified', $verified);
 			$stmt->bindParam(':verif_tokey', $tokey);
-			$stmt->bindParam(':notif', $notified);
+			//$stmt->bindParam(':notif', $notified);
 
 			if (!$stmt->execute()) 
 			{

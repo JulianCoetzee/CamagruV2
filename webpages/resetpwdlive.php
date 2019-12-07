@@ -11,16 +11,17 @@
             Password Reset
         </div>
         <div class="formbox">
-          <form action="../webphp/forgotpwd.php" method="post">
+          <form method="post" action="../webphp/resetpwd.php">
           <label for=password>
               <i class="fas fa-key"></i>
           </label>
-          <input class="fieldbox" type="password" id="new_pwd" name="new_pwd" placeholder="New Password" value=""><br />
+          <input class="fieldbox" type="password" id="new_pwd" name="new_pwd" placeholder="New Password" required><br />
           <label for=password>
               <i class="fas fa-key"></i>
           </label>
-          <input class="fieldbox" type="password" id="new_pwd_confirm" name="new_pwd_confirm" placeholder="Confirm Password" value=""><br />
+          <input class="fieldbox" type="password" id="new_pwd_confirm" name="new_pwd_confirm" placeholder="Confirm Password" required><br />
           <button type="submit" class="formstuff" name="reset_pwd" value="Reset">Reset</button>
           </form>
+        </div>
      </body>
 </html>

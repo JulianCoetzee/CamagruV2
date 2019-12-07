@@ -12,7 +12,7 @@
         $stmt->bindParam(':veriftokey', $tokey);
         if (!$stmt->execute())
         {
-            echo "<h2>Cannot get token.</h2>";
+            echo "<script>Cannot get token.</script>";
             exit();
         }
         $result = $stmt->fetch();
@@ -22,24 +22,24 @@
             $stmt->bindParam(':veriftokey', $tokey);
             if (!$stmt->execute())
             {
-                echo "<h2>Cannot update token</h2>";
+                echo "<script>alert('Cannot update token')</script>";
                 exit();
             }
-            echo "<h2 class='verified-acc'>Account verified</h2>";
+            echo "<script class='verified-acc'>Account verified</script>";
             echo "<h4 class='verified-acc1'>Please login:</h4>";
             echo "<form class='verified-acc' action='../webpages/loginlive.php' method='post'><input class='verify-form' type='submit' value='Login page'></input></form>";
             exit();
         }
         else
         {
-            echo "<h2>Your details were not found.<h2>";
+            echo "<script>alert('Your details were not found.')</script>";
             echo "<form action='../webphp/signup.php' method='post'><input type='submit' value='Create account'></input></form>";
         }
         $conn = NULL;
     }
     else
     {
-        echo "<h2>No verification token found! Please try again.<h2>";
+        echo "<script>alert('No verification token found! Please try again.')</script>";
         echo "<form action='../webphp/signuplive.php' method='post'><input type='submit' value='Sign Up'></input></form>";
         exit();
     }
