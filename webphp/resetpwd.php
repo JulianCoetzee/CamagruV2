@@ -2,10 +2,10 @@
 
 if (isset($_POST['reset_pwd']))
 {
-	if (isset($_GET['tokey']))
+	if (isset($_POST['tokey']))
 	{
 		require 'database2.php';
-		$tokey = $_GET['tokey'];
+		$tokey = $_POST['tokey'];
 		$stmt = $conn->prepare("SELECT * FROM users WHERE verif_tokey= :veriftokey");
 		$stmt->bindParam(':veriftokey', $tokey);
 		if (!$stmt->execute())
@@ -41,8 +41,10 @@ if (isset($_POST['reset_pwd']))
 					exit();
 				}
 			}
-			$newpwd = $_POST['new_password'];
+			$newpwd = $_POST['new_pwd'];
 			$confirmpwd = $_POST['new_pwd_confirm'];
+			// echo $newpwd, $confirmpwd;
+			// exit();
 			if (empty($newpwd) || empty($confirmpwd))
 			{
 				echo "<script>alert('Please complete all fields')</script>";
@@ -61,7 +63,7 @@ if (isset($_POST['reset_pwd']))
 				$new = hash("whirlpool", $newpwd);
 				$stmt = $conn->prepare("UPDATE users SET passwd= :pass WHERE username= :user");
 				$stmt->bindParam(':user', $username);
-				$stmt->bindParam(':passwd', $new);
+				$stmt->bindParam(':pass', $new);
 				if (!$stmt->execute())
 				{
 					echo "<script>alert('ERROR: 1')</script>";

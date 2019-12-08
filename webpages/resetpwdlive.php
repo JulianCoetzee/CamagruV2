@@ -20,6 +20,7 @@
               <i class="fas fa-key"></i>
           </label>
           <input class="fieldbox" type="password" id="new_pwd_confirm" name="new_pwd_confirm" placeholder="Confirm Password" required><br />
+          <input type="hidden" name="tokey" value="<?php echo $_GET['tokey'] ?>">
           <button type="submit" class="formstuff" name="reset_pwd" value="Reset">Reset</button>
           </form>
         </div>

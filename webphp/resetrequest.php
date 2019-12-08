@@ -13,13 +13,64 @@ function email_send($email, $tokey)
 	if ($res)
 	{
         echo "<script>alert('Success! Please check your email for a password reset link.')</script>";
-        echo "<script>window.open('../webpages/requestlive.php','_self')</script>";
+        echo "<script>window.open('../webpages/resetrequestlive.php','_self')</script>";
     }
 	else
 	{
         echo "<script>alert('Failed to send email!')</script>";
-        echo "<script>window.open('../webpages/requestlive.php','_self')</script>";
+        echo "<script>window.open('../webpages/resetrequestlive.php','_self')</script>";
     }
+}
+
+if (isset($_POST['change_pwd']))
+{
+    require 'database2.php';
+    $password = hash("whirlpool", $_POST['password']);
+	$username = $_SESSION['username'];
+
+	if (empty($password) || empty($username))
+	{
+		echo "<script>alert('Complete all fields!')</script>";
+		echo "<script>window.open('../webpages/profilelive.php?error=emptyoldpwd','_self')</script>";
+		exit();
+	}
+	else
+	{
+		$stmt = $conn->prepare("SELECT * FROM users WHERE passwd= :pass AND username= :user");
+		$stmt->bindParam(':pass', $password);
+		$stmt->bindParam(':user', $username);
+		if (!$stmt->execute()) 
+		{
+			echo "<script>alert('SQL ERROR: 1')</script>";
+			echo "<script>window.open('../webpages/profilelive.php?error=sqlerror','_self')</script>";
+			exit();
+		}
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (!$result)
+		{
+			echo "<script>alert('Password incorrect.')</script>";
+			echo "<script>window.open('../webpages/profilelive.php?pasword=incorrect','_self')</script>";
+        }
+        else 
+        {
+            $tokey = bin2hex(random_bytes(16));
+            $stmt = $conn->prepare("UPDATE users SET verif_tokey= :veriftokey WHERE username= :user");
+            $stmt->bindParam(':veriftokey', $tokey);
+            $stmt->bindParam(':user', $username);
+            if (!$stmt->execute())
+            {
+                echo "<script>alert('Cannot update password reset token')</script>";
+                echo "<script>window.open('../webpages/profilelive.php','_self')</script>";
+                exit();
+            }
+            else 
+			{
+                echo "<script>window.open('../webpages/resetpwdlive.php?tokey=$tokey','_self')</script>";
+                exit();
+			}      
+        }
+    }
+    $conn = NULL;
 }
 
 if (isset($_POST['reset_req']))
@@ -29,13 +80,13 @@ if (isset($_POST['reset_req']))
     if (empty($email))
     {
 		echo "<script>alert('Please complete all fields')</script>";
-		echo "<script>window.open('../webpages/requestlive.php?error=emptyfields','_self')</script>";
+		echo "<script>window.open('../webpages/resetrequestlive.php?error=emptyfields','_self')</script>";
 		exit();
     }
     if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === 0)
 	{
 		echo "<script>alert('Email invalid')</script>";
-		echo "<script>window.open('../webpages/requestlive.php','_self')</script>";
+		echo "<script>window.open('../webpages/resetrequestlive.php','_self')</script>";
         exit();
     }
     else
@@ -45,7 +96,7 @@ if (isset($_POST['reset_req']))
 		if (!$stmt->execute()) 
 		{
 			echo "<script>alert('SQL ERROR: 1')</script>";
-			echo "<script>window.open('../webpages/signuplive.php?error=sqlerror','_self')</script>";
+			echo "<script>window.open('../webpages/resetrequestlive.php?error=sqlerror','_self')</script>";
 			exit();
 		}
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
