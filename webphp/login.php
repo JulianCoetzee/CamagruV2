@@ -37,7 +37,7 @@ if (isset($_POST['login'])) {
 			session_start();
 			$_SESSION['username'] = $username;
 			echo "<script>alert('Welcome $username!')</script>";
-			echo "<script>window.open('../webpages/feed.php?home=$username','_self')</script>";
+			echo "<script>window.open('../webpages/feedlive.php?home=$username','_self')</script>";
 			exit();
 		}
 		else
