@@ -7,7 +7,7 @@ html>
 		<link rel="stylesheet" href="">
 		<link rel="stylesheet" href="">
 		<link rel="stylesheet" href="">
-		<script src="../js/performance.js"></script> // ill give you the code for this. It handles notifications for likes and comments and has functions to like a post
+		<script src="../js/performance.js"></script>
 	</head>
 ​
   <body class="bg">
@@ -26,7 +26,7 @@ html>
 				<div class='options'></div>
 				</button>
 				<div id='myDropdown' class='dropdown-content'>
-				<a href='profile.php'>Profile</a>
+				<a href='profilelive.php'>Profile</a>
 				<a href='gallery.php'>Gallery</a>
 				<a href='feed.php'>Feed</a>
 				<a href='upload.php'>Upload</a>
@@ -50,14 +50,14 @@ html>
 <?php
 	session_start();
 	if(isset($_SESSION['username']))
-		echo("<a id='logout' href='../php/logout.php'>Logout</a>"); 
+		echo("<a id='logout' href='../webphp/logout.php'>Logout</a>"); 
 	else
 	{
 		echo("<div class='create'>
-				<a id='link' href='create.php'>create account</a>
+				<a id='link' href='signuplive.php'>Sign Up</a>
 			</div>
 			<div class='create'>
-				<a id='link' href='login.php'>Login</a>
+				<a id='link' href='loginlive.php'>Login</a>
 			</div>");
 	}
 ?>
@@ -85,7 +85,7 @@ html>
 ​
 <!--feed stream-->
 <?php
-	require '../php/db.php';
+	require '../webphp/database2.php';
 	try {
 		$stmt = $conn->query("SELECT * FROM feed ORDER BY upload_date DESC");
 		$posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -154,7 +154,7 @@ html>
 	$conn = NULL;
 ?>
 ​
-	<div class="notified" id="notification">
+	<!-- <div class="notified" id="notification">
 	</div>
 	<div class="foot">
 		<p>Jenelle Michael</p>
@@ -162,4 +162,4 @@ html>
 	</div>
 ​
   </body>
-</html>
+</html> -->
