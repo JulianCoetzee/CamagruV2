@@ -1,4 +1,4 @@
-html>
+<html>
 	<head>
 		<link rel="shortcut icon" type="image/png" href="../icons/4.ico"/>
 		<title>Camagru | Feed</title>
@@ -7,7 +7,7 @@ html>
 		<link rel="stylesheet" href="">
 		<link rel="stylesheet" href="">
 		<link rel="stylesheet" href="">
-		<script src="../js/performance.js"></script>
+		<script src="../scripts/feedscripts.js"></script>
 	</head>
 ​
   <body class="bg">

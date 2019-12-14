@@ -4,18 +4,18 @@
     top: -25px;
 }
 
-.uploadimg-form{
+.uploadimg-form {
     align-content: center;
     position: relative;
     top: 10%;
 }
 
-.upload-self{
+.upload-self {
     position: relative;
     width: 155px;
 }
 
-.temp{
+.temp {
     display: flex;
     flex-direction: column;
     background-size: cover;
@@ -23,31 +23,31 @@
     /*background-image: url(); */
 }
 
-.background{
+.background {
     /* background-size: cover; */
     margin: 0;
     background-image: url();
 }
 
-.loginbackground{
+.loginbackground {
     background-size: cover;
     margin: 0;
     background-image: url();
 }
 
-.newaccbackground{
+.newaccbackground {
     background-size: cover;
     margin: 0;
     background-image: url();
 }
 
-.forgotpwdbg{
+.forgotpwdbg {
     background-size: cover;
     margin: 0;
     background-image: url();
 }
 
-.searchbackground{
+.searchbackground {
     background-size: cover;
     margin: 0;
     background-image: url();
@@ -65,7 +65,7 @@
     padding-top: 2%;
 }
 
-.prev-images{
+.prev-images {
     margin: 4px, 4px;
     padding: 4px;
     width: 500px;
@@ -94,13 +94,13 @@
     top: 40%;
 }
 
-.canvas-inner{
+.canvas-inner {
     height: 120%;
     width: 80%;
     /* padding-left: 20%; */
 }
 
-.upload-canvas{
+.upload-canvas {
     width: 800;
     height: 600;
     position: relative;
@@ -110,14 +110,14 @@
     object-fit: cover;
 }
 
-.stretch{
+.stretch {
     width: 100%;
     display: inline-block;
     font-size: 0;
     line-height: 0;
 }
 
-.panel-clear{
+.panel-clear {
     padding-bottom: 25px;
     position: relative;
     top: 75%;
@@ -129,7 +129,7 @@
     background-image: url();
     background-size: 100%;
     width: 95px;
-    height: 95px;    
+    height: 95px;
     top: 0%;
 }
 
@@ -145,6 +145,7 @@
     top: 50px;
 }
 
+
 /* .fd{
     position: relative;
     top: 75px;
@@ -155,7 +156,7 @@
     background-color: cornflowerblue;
 } */
 
-.profile-content{
+.profile-content {
     top: 30px;
     position: relative;
     padding-left: 100px;
@@ -163,13 +164,13 @@
     vertical-align: baseline;
 }
 
-.send_mail{
+.send_mail {
     position: relative;
     /* left: 160px; */
     top: 25px;
 }
 
-.emailer{
+.emailer {
     display: inline-block;
     width: auto;
     height: auto;
@@ -177,13 +178,12 @@
     top: 50px;
 }
 
-.emails{
+.emails {
     width: 400px;
     height: 400px;
 }
 
 .bio {
-
     position: relative;
 }
 
@@ -192,7 +192,7 @@
     font-size: 30;
 }
 
-.notified{
+.notified {
     font-size: 25;
     text-align: center;
     width: 180px;
@@ -203,7 +203,7 @@
     right: 15;
 }
 
-.options-blocks{
+.options-blocks {
     flex: auto;
     position: relative;
     left: 70px;
@@ -211,7 +211,7 @@
     flex-direction: column;
 }
 
-.text-block{
+.text-block {
     flex: auto;
 }
 
@@ -250,7 +250,7 @@
     top: 60%;
 }
 
-.profile-links{
+.profile-links {
     flex-grow: 0.15;
     flex: content;
     display: flex;
@@ -259,12 +259,12 @@
     width: 100%;
 }
 
-.option_block_5{
+.option_block_5 {
     display: inline-block;
     position: relative;
 }
 
-.option_block_6{
+.option_block_6 {
     display: inline-block;
     position: relative;
 }
@@ -277,27 +277,26 @@
     width: 200px;
 }
 
-.change-profile-img{
+.change-profile-img {
     position: relative;
     width: 100px;
     left: 50px;
 }
 
-.position-box{
+.position-box {
     position: fixed;
     top: 0;
     left: 0;
-    bottom:0;
-    right:0;
+    bottom: 0;
+    right: 0;
     pointer-events: none;
 }
 
-.box-location1{
+.box-location1 {
     pointer-events: all;
     position: relative;
     top: 47%;
     left: 50%;
-
     width: fit-content;
     text-align: center;
     position: relative;
@@ -309,12 +308,11 @@
     border-bottom: 1px solid #000000;
 }
 
-.box-location2{
+.box-location2 {
     pointer-events: all;
     position: relative;
     top: 50%;
     left: 39.5%;
-
     width: fit-content;
     text-align: center;
     position: relative;
@@ -326,7 +324,7 @@
     border-bottom: 1px solid #000000;
 }
 
-.box-location3{
+.box-location3 {
     pointer-events: all;
     position: relative;
     top: 54%;
@@ -363,17 +361,29 @@
     position: inherit;
 }
 
-.show1 {display: block;}
+.show1 {
+    display: block;
+}
 
-.show2 {display: block;}
+.show2 {
+    display: block;
+}
 
-.show3 {display: block;}
+.show3 {
+    display: block;
+}
 
-.show4 {display: block;}
+.show4 {
+    display: block;
+}
 
-.show5 {display: block;}
+.show5 {
+    display: block;
+}
 
-.show7 {display: block;}
+.show7 {
+    display: block;
+}
 
 #butsize {
     width: 100%;
@@ -381,15 +391,15 @@
 }
 
 .dropdowns {
-        /* background-color: #3498DB; */
-        background-color: cadetblue;
-        /* padding-left: 100px; */
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
+    /* background-color: #3498DB; */
+    background-color: cadetblue;
+    /* padding-left: 100px; */
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
 }
 
-.shape{
+.shape {
     background-color: khaki;
     height: 200px;
     width: 100px;
@@ -405,42 +415,43 @@
 }
 
 .feed-usr {
-    position:relative;
+    position: relative;
 }
 
-.feed-comment{
-    margin:4px, 4px; 
-    padding:4px; 
+.feed-comment {
+    margin: 4px, 4px;
+    padding: 4px;
     /* background-color: green;  */
-    width: 500px; 
-    height: 50px; 
-    overflow-x: hidden; 
-    overflow-x: auto; 
-    text-align:justify; 
+    width: 500px;
+    height: 50px;
+    overflow-x: hidden;
+    overflow-x: auto;
+    text-align: justify;
 }
 
-.comment-post{
+.comment-post {
     width: auto;
     height: auto;
     padding-top: 10px;
 }
 
-.feed-date{
+.feed-date {
     position: absolute;
     bottom: 25;
     /* left: 40%; */
 }
+
 .feed-like:focus {
     outline: none;
-  }
+}
 
-.feed-like{
+.feed-like {
     pointer-events: all;
     border: none;
-    background-color:palevioletred;
+    background-color: palevioletred;
     border-radius: 100px;
     display: inline;
-    position:relative;
+    position: relative;
 }
 
 .feed-likes {
@@ -451,14 +462,14 @@
     left: 5;
 }
 
-.feed-delete{
+.feed-delete {
     margin-bottom: 0;
     position: absolute;
     bottom: 12.5;
     right: 0;
 }
 
-.the-box{
+.the-box {
     /* pointer-events: none; */
     position: relative;
     top: 50px;
@@ -484,7 +495,7 @@
     pointer-events: none;
 }
 
-.form-button{
+.form-button {
     background-color: indianred;
     border: none;
     color: white;
@@ -516,7 +527,7 @@
     cursor: pointer;
 }
 
-.verify-form{
+.verify-form {
     background-color: grey;
     border: none;
     color: white;
@@ -527,9 +538,7 @@
     font-size: 20px;
 }
 
-
-
-.verified-acc{
+.verified-acc {
     /* width: 100%; */
     /* height: 50px; */
     text-align: center;
@@ -541,7 +550,7 @@
     /* background-color: aquamarine; */
 }
 
-.verified-acc1{
+.verified-acc1 {
     /* width: 100%; */
     /* height: 50px; */
     text-align: center;
@@ -553,7 +562,7 @@
     /* background-color: aquamarine; */
 }
 
-.no-uploads{
+.no-uploads {
     position: relative;
     top: 35%;
     /* left: 30%; */
@@ -561,7 +570,7 @@
     text-align: center;
 }
 
-.profile-forms{
+.profile-forms {
     pointer-events: all;
     position: relative;
     top: 50%;
@@ -571,7 +580,7 @@
     /* background-color: indianred; */
 }
 
-.profile-inputs{
+.profile-inputs {
     width: fit-content;
     text-align: center;
     position: relative;
@@ -583,13 +592,13 @@
     border-bottom: 1px solid #000000;
 }
 
-.profile-submit{
+.profile-submit {
     position: relative;
     top: 50px;
     left: 72.5px;
 }
 
-.upload-content{
+.upload-content {
     position: relative;
     top: 50px;
     text-align: justify;
@@ -597,7 +606,7 @@
     text-justify: distribute-all-lines;
 }
 
-.big-one{
+.big-one {
     text-align: center;
     border-radius: 10px;
     vertical-align: top;
@@ -609,7 +618,7 @@
     /* top: 100px; */
 }
 
-.upload-panel{
+.upload-panel {
     text-align: center;
     border-radius: 10px;
     vertical-align: top;
@@ -634,7 +643,7 @@
     /* top: 75px; */
 }
 
-.styles-box{
+.styles-box {
     border-radius: 10px;
     vertical-align: top;
     display: inline-block;
@@ -650,16 +659,18 @@
 }
 
 .border {
-    position: relative; 
+    position: relative;
     /* background-color: rgba(var(--b3f,250,250,250),1); */
     height: 50%;
     width: 80%;
     left: 10%;
     right: 10%;
-
 }
+
+
 /*feed css*/
-.white-space{
+
+.white-space {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -672,7 +683,7 @@
     top: 50px;
 }
 
-.work-space{
+.work-space {
     flex: auto;
     /* background-color: crimson; */
     position: relative;
@@ -689,36 +700,36 @@
     top: 0px;
 }
 
+
 /*^end feed css*/
 
 .details {
     display: flex;
     flex-direction: column;
     position: relative;
-
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     flex: auto;
 }
 
-.other-space{
+.other-space {
     width: 100%;
     height: 102px;
 }
 
-.otherother-space{
+.otherother-space {
     width: 100%;
     height: 10px;
 }
 
-.heading-stuff{
+.heading-stuff {
     padding-top: 50px;
     flex: content;
     flex-grow: 0.2;
     position: relative;
 }
 
-.profile-img{
+.profile-img {
     height: 250px;
     vertical-align: baseline;
     position: relative;
@@ -734,6 +745,226 @@
     border-radius: 100px;
 }
 
-.mailsend{
+.mailsend {
     text-align: center;
+}
+
+.fwhite-space {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    justify-content: center;
+    position: relative;
+    height: 680px;
+    width: 80%;
+    left: 10%;
+    top: 50px;
+}
+
+​ .fwork-space {
+    flex: auto;
+    position: relative;
+    height: 100%;
+    width: 60%;
+    top: 0px;
+}
+
+​ .f-img {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    top: 0px;
+}
+
+.old-images {
+    margin: 4px, 4px;
+    padding: 4px;
+    width: 500px;
+    height: 50px;
+    overflow-x: hidden;
+    overflow-x: auto;
+    text-align: justify;
+    position: relative;
+    top: 10;
+    left: 0;
+    background-color: rgba(189, 195, 199, 0.3);
+    height: 408;
+    width: 150;
+    border-radius: 10px;
+}
+
+​ .upload-box {
+    position: absolute;
+    left: 10%;
+    top: -25px;
+}
+
+​ .upload-form {
+    align-content: center;
+    position: relative;
+    top: 10%;
+}
+
+​ .upload-upload {
+    position: relative;
+    width: 155px;
+}
+
+​ .post-img {
+    background-color: indianred;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    top: 40%;
+}
+
+​ .canvas-inner {
+    height: 120%;
+    width: 80%;
+    /* padding-left: 20%; */
+}
+
+​ .upload-canvas {
+    width: 800;
+    height: 600;
+    position: relative;
+    background-color: aliceblue;
+    left: 10%;
+    top: 50px;
+    object-fit: cover;
+}
+
+.extra-space {
+    width: 100%;
+    height: 102px;
+}
+
+​ .spacing {
+    width: 100%;
+    height: 10px;
+}
+
+.upload-stuff {
+    position: relative;
+    top: 50px;
+    text-align: justify;
+    -ms-text-justify: distribute-all-lines;
+    text-justify: distribute-all-lines;
+}
+
+.stuffs {
+    text-align: center;
+    border-radius: 10px;
+    vertical-align: top;
+    display: inline-block;
+    position: relative;
+    /* left: 5px; */
+    height: 1100;
+    width: auto;
+    /* top: 100px; */
+}
+
+​ .upload-panel {
+    text-align: center;
+    border-radius: 10px;
+    vertical-align: top;
+    display: inline-block;
+    position: relative;
+    /* left: 5px; */
+    height: 650px;
+    width: auto;
+    background-color: rgba(189, 195, 199, 0.3);
+    /* top: 100px; */
+}
+
+​ .capture {
+    text-align: center;
+    border-radius: 10px;
+    vertical-align: top;
+    display: inline-block;
+    background-color: rgba(189, 195, 199, 0.3);
+    width: 60%;
+    height: 88%;
+    position: relative;
+}
+
+​ .feed-bottom {
+    /* background-color: violet;*/
+    position: relative;
+    bottom: -50;
+    width: 100%;
+    height: 100px;
+    pointer-events: none;
+}
+
+​ .feed-line {
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* top: 50px; */
+    /* height: 50px; */
+}
+
+.feed-usr {
+    position: relative;
+    /* left:0; */
+    /* top:0px; */
+    /* display: inline; */
+}
+
+.feed-comment {
+    margin: 4px, 4px;
+    padding: 4px;
+    /* background-color: green;  */
+    width: 500px;
+    height: 50px;
+    overflow-x: hidden;
+    overflow-x: auto;
+    text-align: justify;
+}
+
+.comment-post {
+    width: auto;
+    height: auto;
+    padding-top: 10px;
+}
+
+.feed-date {
+    position: absolute;
+    bottom: 25;
+    /* left: 40%; */
+}
+
+.feed-like:focus {
+    outline: none;
+}
+
+.feed-like {
+    pointer-events: all;
+    border: none;
+    background-color: palevioletred;
+    border-radius: 100px;
+    display: inline;
+    position: relative;
+}
+
+.feed-likes {
+    display: inline;
+    /* width: 150px; */
+    position: relative;
+    /* top: 0; */
+    left: 5;
+}
+
+.feed-delete {
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 12.5;
+    right: 0;
 }
