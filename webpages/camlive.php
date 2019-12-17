@@ -69,7 +69,6 @@
         const Sunflower = document.getElementById('Sunflower');
         const Savebutton = document.getElementById('save');
         const constraints = {video: true, audio: false};
-        
 
         Capturebutton.addEventListener('click', () =>
         {

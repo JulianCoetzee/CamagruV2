@@ -1,5 +1,5 @@
 <?php
-function email_send($email, $tokey)
+function email_send($email, $tokey, $username)
 {
     $subject = "Camagru - Account Activation";
 	$message = "<a href='http://localhost:8080/CamagruTakeTwo/webphp/confirmacc.php?tokey=$tokey'>Click this link to verify your Camagru account!</a><br /><br />";
@@ -15,6 +15,16 @@ function email_send($email, $tokey)
     }
 	else
 	{
+		require_once 'database2.php';
+
+		$stmt = $conn->prepare("DELETE * FROM users WHERE username= :user");
+		$stmt->bindParam(':user', $username);
+		if (!$stmt->execute()) 
+		{
+			echo "<script>alert('SQL ERROR: 1')</script>";
+			echo "<script>window.open('../webpages/signuplive.php?error=sqlerror','_self')</script>";
+			exit();
+		}
         echo "<script>alert('Failed to send email!')</script>";
         echo "<script>window.open('../webpages/signuplive.php','_self')</script>";
     }
@@ -118,7 +128,7 @@ if (isset($_POST['register']))
 			}
 			else 
 			{
-				email_send($email, $tokey);
+				email_send($email, $tokey, $username);
 			}
 		}
 	
