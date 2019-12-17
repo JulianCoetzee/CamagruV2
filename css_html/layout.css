@@ -229,39 +229,39 @@
 
 .option_block_1 {
     flex: auto;
-    background-color: cadetblue;
+    background-color: khaki;
     position: relative;
-    height: 50px;
-    width: 200px;
+    height: auto;
+    width: auto;
     font-family: 'Courier New', Courier, monospace;
 }
 
 .option_block_2 {
     flex: auto;
-    background-color: cadetblue;
+    background-color: khaki;
     position: relative;
-    height: 50px;
-    width: 200px;
+    height: auto;
+    width: auto;
     top: 20%;
     font-family: 'Courier New', Courier, monospace;
 }
 
 .option_block_3 {
     flex: auto;
-    background-color: cadetblue;
+    background-color: khaki;
     position: relative;
-    height: 50px;
-    width: 200px;
+    height: auto;
+    width: auto;
     top: 40%;
     font-family: 'Courier New', Courier, monospace;
 }
 
 .option_block_4 {
     flex: auto;
-    background-color: cadetblue;
+    background-color: khaki;
     position: relative;
-    height: 50px;
-    width: 200px;
+    height: auto;
+    width: auto;
     top: 60%;
     font-family: 'Courier New', Courier, monospace;
 }
@@ -290,7 +290,7 @@
 
 .option_block_7 {
     flex: auto;
-    background-color: cadetblue;
+    background-color: khaki;
     position: relative;
     height: 50px;
     width: 200px;

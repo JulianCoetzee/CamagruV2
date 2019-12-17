@@ -34,6 +34,21 @@
     border-radius: 15px;
 }
 
+.formboxprof {
+    position: relative;
+    background-color: khaki;
+    width: auto;
+    padding: 5px;
+    padding-top: 5px;
+    /* top: 50%;
+    left: 50%;
+    margin-top: -350px;
+    margin-left: -200px; */
+    height: auto;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 15px;
+}
+
 ::placeholder {
     text-align: center;
     font-size: 20px;
@@ -66,11 +81,12 @@ button:focus {
 
 .formstuff {
     position: relative;
-    width: 90px;
+    width: auto;
     margin-left: 88px;
     margin-top: 40px;
     font-size: 20px;
     background-color: rgb(238, 238, 238);
+    border-radius: 15px;
     font-family: 'Courier New', Courier, monospace;
 }
 

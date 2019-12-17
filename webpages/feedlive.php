@@ -54,7 +54,10 @@
 <?php
 	// session_start();
 	if(isset($_SESSION['username']))
-		echo("<a id='logout' href='../webphp/logout.php'>Logout</a>"); 
+	{
+		echo ("<a href='profilelive.php'>Profile</a><br />");
+		echo("<a id='logout' href='../webphp/logout.php'>Logout</a>");
+	}	
 	else
 	{
 		echo("<div class='create'>

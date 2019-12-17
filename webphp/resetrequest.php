@@ -22,10 +22,13 @@ function email_send($email, $tokey)
     }
 }
 
+if(!isset($_SESSION['username']))
+    session_start();
+
 if (isset($_POST['change_pwd']))
 {
     require 'database2.php';
-    $password = hash("whirlpool", $_POST['password']);
+    $password = hash("whirlpool", $_POST['password3']);
 	$username = $_SESSION['username'];
 
 	if (empty($password) || empty($username))
