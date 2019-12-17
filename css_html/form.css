@@ -15,11 +15,12 @@
 .client_info {
     margin-left: 25px;
     height: 150px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-.formbox{
+.formbox {
     position: absolute;
-    background-color:  lightgoldenrodyellow;
+    background-color: lightgoldenrodyellow;
     height: 400px;
     width: 300px;
     padding: 50px;
@@ -39,6 +40,7 @@
     color: darkslategrey;
     font-family: 'Courier New', Courier, monospace;
 }
+
 
 /*input highlighting removal*/
 
@@ -62,7 +64,7 @@ button:focus {
     font-family: 'Courier New', Courier, monospace;
 }
 
-.formstuff{
+.formstuff {
     position: relative;
     width: 90px;
     margin-left: 88px;
@@ -72,12 +74,12 @@ button:focus {
     font-family: 'Courier New', Courier, monospace;
 }
 
-.wordstuff{
+.wordstuff {
     padding-left: 40px;
     font-size: 25;
 }
 
-.camagru_header{
+.camagru_header {
     text-align: center;
     top: 1px;
     position: relative;
@@ -87,6 +89,7 @@ button:focus {
     padding-left: 30px;
     font-family: 'Courier New', Courier, monospace;
 }
+
 
 /*.the-line {
     position: relative;

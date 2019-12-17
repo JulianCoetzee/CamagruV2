@@ -19,28 +19,31 @@
 	if(!isset($_SESSION['username']))
 		session_start();
 	if(isset($_SESSION['username'])) {
-		echo("<div class='dropdown'>
+		echo("<div class='dropdowns'>
 				<button onclick='myFunction()' class='dropbtn'>
 				<div class='other_option'></div>
 				<div class='options'></div>
 				<div class='options'></div>
 				<div class='options'></div>
 				</button>
-				<div id='myDropdown' class='dropdown-content'>
+				<div id='myDropdown' class='dropdowns>
 				<a href='profilelive.php'>Profile</a>
 				<a href='gallery.php'>Gallery</a>
 				<a href='feed.php'>Feed</a>
-				<a href='upload.php'>Upload</a>
+				<a href='camlive.php'>Camera & Editor</a>
 				</div>
 			</div>");
 			
 		echo("<div class='loggedin-user'>@"
 			.$_SESSION['username']. 
 			"</div>");
-		echo("<form class='search-bar' action='./user_search.php' method='post'>
-				<input type='text' name='search_param' placeholder='username search'>
+		echo("
+		<div class='formbox'>
+			<form action='./user_search.php' method='post'>
+				<input class'fieldbox 'type='text' name='search_param' placeholder='username search'>
 				<input type='submit' name='search' value='GO!'>
-			</form>");
+			</form>
+			</div>");
 	}
 ?>
 	<div class="camagru">
@@ -49,7 +52,7 @@
   
 <!-- login/logout  -->
 <?php
-	session_start();
+	// session_start();
 	if(isset($_SESSION['username']))
 		echo("<a id='logout' href='../webphp/logout.php'>Logout</a>"); 
 	else
@@ -156,11 +159,11 @@
 ?>
 ​
 	<!-- <div class="notified" id="notification">
-	</div>
-	<div class="foot">
-		<p>Jenelle Michael</p>
-		<div class="copyright">Copyright© Camagru - WeThinkCode_ jmichael 2019</div>
+	</div> -->
+	<div class="footer">
+		<p>Julian Coetzee</p>
+		<div class="copyright">Copyright© Camagru - WeThinkCode_ jcoetzee 2019</div>
 	</div>
 ​
   </body>
-</html> -->
+</html>

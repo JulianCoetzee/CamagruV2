@@ -1,9 +1,9 @@
 <?php
-
+if(!isset($_SESSION['username']))
+  session_start();
 // if (isset($_POST['canvasData']))
 if (isset($_POST['img']))
 {
-
   // Get the data
   $username = $_SESSION['username'];
   // $imageData = $_POST['canvasData'];

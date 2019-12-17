@@ -12,9 +12,25 @@
     <link rel="stylesheet" href="../css_html/layout.css">
   </head>
     <body>
-        <div class="camagru_header">
-            <?php echo $_SESSION['username'] ?>'s Profile
-        </div>
+    <div class="camagru_header">
+        <?php
+        if(isset($_SESSION['username']))
+        {
+            echo ($_SESSION['username']."'s Camera & Editor<br />");
+            echo("<a id='logout' href='../webphp/logout.php'>Logout</a>"); 
+        }
+        else
+            {
+            echo("<div class='create'>
+                    <a id='link' href='signuplive.php'>Sign Up</a>
+                </div>
+                <div class='create'>
+                    <a id='link' href='loginlive.php'>Login</a>
+                </div>");
+            }
+        ?>
+    </div>
+    
         <div >
          
         </div>
