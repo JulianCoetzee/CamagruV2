@@ -1,6 +1,7 @@
 <html>
   <head>      
     <meta charset = utf-8>
+    <link rel="shortcut icon" type="image/png" href="../cheese/cheese.ico"/>
     <title>Password Reset Request</title>
     <link rel="stylesheet" href="http://use.fontawesome.com/releases/v5.7.1/css/all.css">
     <link rel="stylesheet" href="../css_html/form.css">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="shortcut icon" type="image/png" href="../icons/4.ico"/>
+		<link rel="shortcut icon" type="image/png" href="../cheese/cheese.ico"/>
 		<title>Camagru | Feed</title>
 		<link rel="stylesheet" href="">
 		<link rel="stylesheet" href="">
@@ -20,13 +20,14 @@
 		session_start();
 	if(isset($_SESSION['username'])) {
 		echo("<div class='dropdowns'>
-				<button onclick='myFunction()' class='dropbtn'>
+				<label for='drop'><i class='fas fa-cheese'></i></label>
+				<button onclick='myFunction()' class='formstuff' name='drop' id='drop'>
 				<div class='other_option'></div>
 				<div class='options'></div>
 				<div class='options'></div>
 				<div class='options'></div>
 				</button>
-				<div id='myDropdown' class='dropdowns>
+				<div id='myDropdown' class='dropdowns'>
 				<a href='profilelive.php'>Profile</a>
 				<a href='gallery.php'>Gallery</a>
 				<a href='feed.php'>Feed</a>
@@ -46,28 +47,24 @@
 			</div>");
 	}
 ?>
-	<div class="camagru">
-	Camagru
-	</div>
   
-<!-- login/logout  -->
-<?php
-	// session_start();
-	if(isset($_SESSION['username']))
-	{
-		echo ("<a href='profilelive.php'>Profile</a><br />");
-		echo("<a id='logout' href='../webphp/logout.php'>Logout</a>");
-	}	
-	else
-	{
-		echo("<div class='create'>
-				<a id='link' href='signuplive.php'>Sign Up</a>
-			</div>
-			<div class='create'>
-				<a id='link' href='loginlive.php'>Login</a>
-			</div>");
-	}
-?>
+    <div class="profile-links">
+    <?php
+        if(isset($_SESSION['username']))
+        {
+            echo("<a id='logout' href='../webphp/logout.php'>Logout</a>"); 
+        }
+        else
+            {
+            echo("<div class='create'>
+                    <a id='link' href='signuplive.php'>Sign Up</a>
+                </div>
+                <div class='create'>
+                    <a id='link' href='loginlive.php'>Login</a>
+                </div>");
+            }
+        ?>
+    </div>
 ​
 	</div>
 	<!-- script for drop btn-->
@@ -76,12 +73,15 @@
 		document.getElementById("myDropdown").classList.toggle("show");
 		}
 		window.onclick = function(event) {
-			if (!event.target.matches('.dropbtn')) {
+			if (!event.target.matches('.drop'))
+			{
 				var dropdowns = document.getElementsByClassName("dropdown-content");
 				var i;
-				for (i = 0; i < dropdowns.length; i++) {
+				for (i = 0; i < dropdowns.length; i++)
+				{
 					var openDropdown = dropdowns[i];
-					if (openDropdown.classList.contains('show')) {
+					if (openDropdown.classList.contains('show'))
+					{
 						openDropdown.classList.remove('show');
 					}
 				}

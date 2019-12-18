@@ -6,6 +6,7 @@
 <html>
   <head>      
     <meta charset = utf-8>
+    <link rel="shortcut icon" type="image/png" href="../cheese/cheese.ico"/>
     <title>Profile | Options</title>
     <link rel="stylesheet" href="http://use.fontawesome.com/releases/v5.7.1/css/all.css">
     <link rel="stylesheet" href="../css_html/form.css">
@@ -36,6 +37,18 @@
         ?>
     </div>
     <div class="option_block_1">
+      <h3>Email Notifications</h3>
+            <div class="formboxprof">
+            <form action="../webphp/useroptions.php" method="POST">
+            <label for="notify_me">Please notify me</label>
+            <input type="checkbox" name="notify_me" ><br />
+            <label for="no_notify">Do not notify me</label>
+            <input type="checkbox" name="no_notify" ><br />
+            <button type="submit" class="formstuff" name="update" value="update">Update</button>
+            </form>
+            </div>
+    </div>
+    <div class="option_block_1">
       <h3>Change Username</h3>
             <div class="formboxprof">
             <form action="../webphp/useroptions.php" method="POST">
@@ -51,7 +64,7 @@
             </form>
             </div>
     </div>
-    <div class="option_block_2">
+    <div class="option_block_1">
       <h3>Change Email</h3>
               <div class="formboxprof">
               <form action="../webphp/useroptions.php" method="POST">
@@ -67,7 +80,7 @@
               </form>
               </div>
     </div>
-    <div class="option_block_3" >
+    <div class="option_block_1" >
       <h3>Change Password</h3>
               <div class="formboxprof">
               <form action="../webphp/resetrequest.php" method="POST">
@@ -79,7 +92,7 @@
               </form>
               </div>
     </div>
-    <div class="option_block_4" >
+    <div class="option_block_1" >
       <h3>Delete Account  </h3>
               <div class="formboxprof">
               <form action="../webphp/useroptions.php" method="POST">

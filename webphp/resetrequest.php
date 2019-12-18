@@ -13,7 +13,7 @@ function email_send($email, $tokey)
 	if ($res)
 	{
         echo "<script>alert('Success! Please check your email for a password reset link.')</script>";
-        echo "<script>window.open('../webpages/resetrequestlive.php','_self')</script>";
+        echo "<script>window.open('../webphp/logout.php','_self')</script>";
     }
 	else
 	{

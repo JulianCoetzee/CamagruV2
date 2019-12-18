@@ -10,6 +10,7 @@ if (isset($_POST['img']))
   $imageData = $_POST['img'];
 
   $savename = '@'.$username.date('Y-m-d H:i:sT');
+  $savedate = date('Y-m-d H:i:sT');
   if (!$savename || !$imageData)
   {
     echo "<script>alert('Save error!')</script>";
@@ -28,23 +29,26 @@ if (isset($_POST['img']))
   // $savefile = fopen('/goinfre/jcoetzee/Desktop/PHP_live/apache2/htdocs/CamagruTakeTwo/new3.png', 'w');
   fwrite($savefile, $unencodedsave);
   fclose($savefile);
-
   if (!$savefile)
   {
     echo "<script>alert('Save error!')</script>";
 		echo "<script>window.open('../webpages/camlive.php?error=savingfailed','_self')</script>";
 		exit();
   }
-  else
+  else // if (fclose($savefile))
   {
     require 'database2.php';
 
-    $stmt = $conn->prepare("INSERT INTO `feed`(`image_id`, `img`, `username`, `upload_date`, `likes`) VALUES(:imgid, :img, :user, :savedate, :likes)");
-		$stmt->bindParam(':imgid', $savename);
-    $stmt->bindParam(':img', $savefile);
+    //$username = $_session['username'];
+    //$savedate = ;
+    //$image = path of $POST['imge'];
+    $savepath = "../cheese/'.$savename.'.png";
+    $likes = 0;
+    $stmt = $conn->prepare("INSERT INTO `feed`(`img`, `username`, `upload_date`, `likes`) VALUES(:img, :user, :upload, :likes)");
+    $stmt->bindParam(':img', $savepath);
     $stmt->bindParam(':user', $username);
-    $stmt->bindParam(':savedate', date('Y-m-d H:i:sT'));
-    $stmt->bindParam(':likes', 0);
+    $stmt->bindParam(':upload', $savedate);
+    $stmt->bindParam(':likes', $likes);
 		if (!$stmt->execute()) 
 		{
 			echo "<script>alert('SQL ERROR: 1')</script>";
