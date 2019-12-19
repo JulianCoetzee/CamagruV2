@@ -10,11 +10,12 @@ if (isset($_POST['img']))
   $imageData = $_POST['img'];
 
   $savename = '@'.$username.date('Y-m-d H:i:sT');
-  $savedate = date('Y-m-d H:i:sT');
+  $savedate = date('Y-m-d H:i:s');
   if (!$savename || !$imageData)
   {
-    echo "<script>alert('Save error!')</script>";
-		echo "<script>window.open('../webpages/camlive.php?error=sendingfailed','_self')</script>";
+    // echo "<script>alert('Save error!')</script>";
+    echo "Save error! No image data!";
+		// echo "<script>window.open('../webpages/camlive.php?error=sendingfailed','_self')</script>";
 		exit();
   }
  
@@ -24,25 +25,26 @@ if (isset($_POST['img']))
  
   // Need to decode before saving since the data received is already base64 encoded
   $unencodedsave=base64_decode($filtersave);
-   
+
   $savefile = fopen('../cheese/'.$savename.'.png', 'wb');
   // $savefile = fopen('/goinfre/jcoetzee/Desktop/PHP_live/apache2/htdocs/CamagruTakeTwo/new3.png', 'w');
   fwrite($savefile, $unencodedsave);
   fclose($savefile);
   if (!$savefile)
   {
-    echo "<script>alert('Save error!')</script>";
-		echo "<script>window.open('../webpages/camlive.php?error=savingfailed','_self')</script>";
+    // echo "<script>alert('Save error!')</script>";
+    echo "Save error! File save failed!";
+		// echo "<script>window.open('../webpages/camlive.php?error=savingfailed','_self')</script>";
 		exit();
   }
   else // if (fclose($savefile))
   {
     require 'database2.php';
 
-    //$username = $_session['username'];
+    $username = $_SESSION['username'];
     //$savedate = ;
     //$image = path of $POST['imge'];
-    $savepath = "../cheese/'.$savename.'.png";
+    $savepath = "../cheese/$savename.png";
     $likes = 0;
     $stmt = $conn->prepare("INSERT INTO feed(`img`, `username`, `upload_date`, `likes`) VALUES(:img, :user, :upload, :likes)");
     $stmt->bindParam(':img', $savepath);
@@ -51,13 +53,15 @@ if (isset($_POST['img']))
     $stmt->bindParam(':likes', $likes);
 		if (!$stmt->execute()) 
 		{
-			echo "<script>alert('SQL ERROR: 1')</script>";
-			echo "<script>window.open('../webpages/camlive.php?error=sqlerror','_self')</script>";
+      // echo "<script>alert('SQL ERROR: 1')</script>";
+      // echo "<script>window.open('../webpages/camlive.php?error=sqlerror','_self')</script>";
+      echo "SQL ERROR: 1";
 			exit();
     }
     else
     {
-      echo "<script>window.open('../webpages/camlive.php?save=success','_self')</script>";
+      // echo "<script>window.open('../webpages/camlive.php?save=success','_self')</script>";
+      echo "Save successful.";
       exit();
     }
   }

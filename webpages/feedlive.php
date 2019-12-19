@@ -66,7 +66,7 @@
         ?>
     </div>
 ​
-	</div>
+	<div>
 	<!-- script for drop btn-->
 	<script>
 		function myFunction() {
@@ -93,25 +93,32 @@
 <!--feed stream-->
 <?php
 	require '../webphp/database2.php';
-	try {
+	try 
+	{
 		$stmt = $conn->query("SELECT * FROM feed ORDER BY upload_date DESC");
 		$posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
-	} catch (PDOException $exception) {
+	} 
+	catch (PDOException $exception) 
+	{
 		echo "<script>alert('SQL ERROR: 1')</script>";
 		exit();
 	}
-	if (!$posts) {
+	if (!$posts) 
+	{
 		echo "<div class='no-uploads'>No posts to view here yet!</div>";
 	}
-	else {
-		foreach ($posts as $col) {
+	else 
+	{
+		foreach ($posts as $col) 
+		{
 			echo "<div class='feed-white-space'>";
 			echo "<div class='feed-work-space'>";
 			// echo "<div class='the-box'>";
-			$encoded_image = $col['img'];
-			$display = "<img onclick='displayComments({$col['image_id']})' src='data:image/*;base64,{$encoded_image}' width='100%' height='100%' >";
+			$image = $col['img'];
+			$display = "<img onclick='commdisplay({$col['image_id']})' src='$image' width='100px' height='100px' >";
 			//session_start();
-			if (isset($_SESSION['username'])) {
+			if (isset($_SESSION['username'])) 
+			{
 				// post owner
 				echo "<div class='feed-usr' >@" . $col['username'] . "</div>";
 				// post image
@@ -138,7 +145,8 @@
 				// posted date
 				echo "<div class='feed-date' >Posted " . $col['upload_date'] . "</div>";
 				// delete button
-				if ($_SESSION['username'] === $col['username']) {
+				if ($_SESSION['username'] === $col['username'])
+				{
 					echo "<form class='feed-delete' action='../php/post_activity.php' method='post'>
 								<input type='hidden' name='id' value='{$col['image_id']}'>
 								<input  type='submit' name='delete' value='Delete post'>
@@ -146,7 +154,8 @@
 				}
 				echo "<div class='feed-line' ><hr/ ></div>";
 			}
-			else {
+			else
+			{
 				echo "<div class='feed-usr' >@" . $col['username'] . "</div>";
 				echo "<div class='feed-img'>" . $display . "</div>";
 				echo "<div class='feed-likes'><p class='feed-likes'>{$col['likes']} likes</p></div>";
@@ -160,7 +169,7 @@
 	}
 	$conn = NULL;
 ?>
-​
+​	</div>
 	<!-- <div class="notified" id="notification">
 	</div> -->
 	<div class="footer">

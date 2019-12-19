@@ -108,7 +108,6 @@
         const context = canvas.getContext('2d');
         const Capturebutton = document.getElementById('capture');
         const Uploadbutton = document.getElementById('upload');
-        // const Uploadimg = document.getElementById('upimg').value;
         const Cookie = document.getElementById('Cookie');
         const Horns = document.getElementById('Horns');
         const Sunflower = document.getElementById('Sunflower');
@@ -124,10 +123,25 @@
                 var ajax = new XMLHttpRequest();   
                 ajax.open("POST", 'http://localhost:8080/CamagruTakeTwo/webphp/save.php', true);
                 ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                ajax.onreadystatechange = function () 
+                {
+                    if (ajax.status === 200 && ajax.readyState === ajax.DONE)
+                    {
+                        console.log('ResponseText:', ajax.responseText);
+                        if (ajax.responseText === "Save error! No image data!")
+                            alert('Save error! No image data!');
+                        if (ajax.responseText === "Save error! File save failed!")
+                            alert('Save error! File save failed!');
+                        if (ajax.responseText === "SQL ERROR: 1")
+                            alert('SQL ERROR: 1');
+                        if (ajax.responseText === "Save successful.")
+                            alert('Save successful.');
+                    }
+                }
                 // ajax.send(canvasData);
                 ajax.send("img=" + canvasData);
                 // console.log(canvasData);
-                window.open('../webphp/save.php','_self');
+                // window.open('../webphp/save.php','_self');
             });
         });
         var Upin = document.getElementById('upimg');
@@ -154,7 +168,7 @@
                 // ajax.send(canvasData);
                 ajax.send("img=" + canvasData);
                 // console.log(canvasData);
-                window.open('../webphp/save.php','_self');
+                // window.open('../webphp/save.php','_self');
             });
         });
         },false); 
