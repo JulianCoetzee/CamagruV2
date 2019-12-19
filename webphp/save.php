@@ -24,7 +24,7 @@ if (isset($_POST['img']))
  
   // Need to decode before saving since the data received is already base64 encoded
   $unencodedsave=base64_decode($filtersave);
- 
+   
   $savefile = fopen('../cheese/'.$savename.'.png', 'wb');
   // $savefile = fopen('/goinfre/jcoetzee/Desktop/PHP_live/apache2/htdocs/CamagruTakeTwo/new3.png', 'w');
   fwrite($savefile, $unencodedsave);
@@ -44,7 +44,7 @@ if (isset($_POST['img']))
     //$image = path of $POST['imge'];
     $savepath = "../cheese/'.$savename.'.png";
     $likes = 0;
-    $stmt = $conn->prepare("INSERT INTO `feed`(`img`, `username`, `upload_date`, `likes`) VALUES(:img, :user, :upload, :likes)");
+    $stmt = $conn->prepare("INSERT INTO feed(`img`, `username`, `upload_date`, `likes`) VALUES(:img, :user, :upload, :likes)");
     $stmt->bindParam(':img', $savepath);
     $stmt->bindParam(':user', $username);
     $stmt->bindParam(':upload', $savedate);
@@ -62,9 +62,10 @@ if (isset($_POST['img']))
     }
   }
 }
+
 else
 {
-  echo "<script>window.open('../webpages/camlive.php','_self')</script>";
+  echo "<script>window.open('../webpages/camlive.php?boo','_self')</script>";
   exit();
 }
 
