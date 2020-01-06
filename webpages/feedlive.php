@@ -3,57 +3,28 @@
 	<head>
 		<link rel="shortcut icon" type="image/png" href="../cheese/cheese.ico"/>
 		<title>Camagru | Feed</title>
-		<link rel="stylesheet" href="">
-		<link rel="stylesheet" href="">
-		<link rel="stylesheet" href="">
-		<link rel="stylesheet" href="">
-		<link rel="stylesheet" href="">
+		<link rel="stylesheet" href="../css_html/form.css">
+		<link rel="stylesheet" href="../css_html/layout.css">
+		<link rel="stylesheet" href="../css_html/footer_conf.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script src="../scripts/feedscripts.js"></script>
 	</head>
 ​
-  <body class="bg">
-    <div class="head">
-​
-<!-- the drop down button and username-->
-<?php
-	if(!isset($_SESSION['username']))
+  <body >
+  <div class="camagru_header">
+		<?php
+		if(!isset($_SESSION['username']))
 		session_start();
-	if(isset($_SESSION['username'])) {
-		echo("<div class='dropdowns'>
-				<label for='drop'><i class='fas fa-cheese'></i></label>
-				<button onclick='myFunction()' class='formstuff' name='drop' id='drop'>
-				<div class='other_option'></div>
-				<div class='options'></div>
-				<div class='options'></div>
-				<div class='options'></div>
-				</button>
-				<div id='myDropdown' class='dropdowns'>
-				<a href='profilelive.php'>Profile</a>
-				<a href='gallery.php'>Gallery</a>
-				<a href='feed.php'>Feed</a>
-				<a href='camlive.php'>Camera & Editor</a>
-				</div>
-			</div>");
-			
-		echo("<div class='loggedin-user'>@"
-			.$_SESSION['username']. 
-			"</div>");
-		echo("
-		<div class='formbox'>
-			<form action='./user_search.php' method='post'>
-				<input class'fieldbox 'type='text' name='search_param' placeholder='username search'>
-				<input type='submit' name='search' value='GO!'>
-			</form>
-			</div>");
-	}
-?>
-  
-    <div class="profile-links">
-    <?php
         if(isset($_SESSION['username']))
         {
-            echo("<a id='logout' href='../webphp/logout.php'>Logout</a>"); 
+            echo ($_SESSION['username']."'s Camera & Editor<br />");
         }
+        ?>
+        </div>
+    <div class="client_info">
+        <?php
+        if(isset($_SESSION['username']))
+            echo("<a id='logout' href='../webphp/logout.php'>Logout</a>"); 
         else
             {
             echo("<div class='create'>
@@ -62,13 +33,70 @@
                 <div class='create'>
                     <a id='link' href='loginlive.php'>Login</a>
                 </div>");
-            }
+			}
+		?>
+    </div>
+	<div class="profile-links">
+	<a href='profilelive.php'>Profile Options</a>
+	<!-- <a href='feedlive.php'>Feed</a> -->
+	<a href='camlive.php'>Camera & Editor</a>
+    </div>
+    <!-- <div class="head"> -->
+​
+<!-- the drop down button and username-->
+<?php
+	// if(isset($_SESSION['username'])) {
+	// 	echo("<div class='dropdowns'>
+	// 			<label for='drop'><i class='fas fa-cheese'></i></label>
+	// 			<button onclick='myFunction()' class='formstuff' name='drop' id='drop'>
+	// 			<div class='other_option'></div>
+	// 			<div class='options'></div>
+	// 			<div class='options'></div>
+	// 			<div class='options'></div>
+	// 			</button>
+	// 			<div id='myDropdown' class='dropdowns'>
+	// 			<a href='profilelive.php'>Profile Options</a>
+	// 			<a href='gallery.php'>Gallery</a>
+	// 			<a href='feed.php'>Feed</a>
+	// 			<a href='camlive.php'>Camera & Editor</a>
+	// 			</div>
+	// 		</div>");
+			
+	// 	echo("<div class='loggedin-user'>@"
+	// 		.$_SESSION['username']. 
+	// 		"</div>");
+		// echo("
+		// <div class='formbox'>
+		// 	<form action='./user_search.php' method='post'>
+		// 		<input class'fieldbox 'type='text' name='search_param' placeholder='username search'>
+		// 		<input type='submit' name='search' value='GO!'>
+		// 	</form>
+		// 	</div>");
+	// }
+?>
+</div>
+  
+    <!-- <div class="profile-links"> -->
+    <?php
+        // if(isset($_SESSION['username']))
+        // {
+        //     echo("<a id='logout' href='../webphp/logout.php'>Logout</a>"); 
+        // }
+        // else
+        //     {
+        //     echo("<div class='create'>
+        //             <a id='link' href='signuplive.php'>Sign Up</a>
+        //         </div>
+        //         <div class='create'>
+        //             <a id='link' href='loginlive.php'>Login</a>
+        //         </div>");
+        //     }
         ?>
     </div>
 ​
 	<div>
 	<!-- script for drop btn-->
-	<script>
+	<!-- <script>
 		function myFunction() {
 		document.getElementById("myDropdown").classList.toggle("show");
 		}
@@ -87,7 +115,7 @@
 				}
 			}
 		}
-	</script>
+	</script> -->
 ​
 ​
 <!--feed stream-->
@@ -111,8 +139,8 @@
 	{
 		foreach ($posts as $col) 
 		{
-			echo "<div class='feed-white-space'>";
-			echo "<div class='feed-work-space'>";
+			// echo "<div class='feed-white-space'>";
+			// echo "<div class='feed-work-space'>";
 			// echo "<div class='the-box'>";
 			$image = $col['img'];
 			$display = "<img onclick='commdisplay({$col['image_id']})' src='$image' width='100px' height='100px' >";
@@ -123,9 +151,9 @@
 				echo "<div class='feed-usr' >@" . $col['username'] . "</div>";
 				// post image
 				echo "<div class='feed-img'>" . $display;
-				echo "<span class='tooltiptext'>Click/Tap on the post to view comments</span>";
+				// echo "<span class='tooltiptext'>Click/Tap on the post to view comments</span>";
 				echo "</div>";
-				echo"<div class='some-space'></div>";
+				// echo"<div class='some-space'></div>";
 				// like button
 				echo "<button class='feed-like' onclick='like_img({$col['image_id']})'>Like</button>";
 				// post likes
@@ -150,9 +178,9 @@
 					echo "<form class='feed-delete' action='../php/post_activity.php' method='post'>
 								<input type='hidden' name='id' value='{$col['image_id']}'>
 								<input  type='submit' name='delete' value='Delete post'>
-							</form>";
+							</form><br />";
 				}
-				echo "<div class='feed-line' ><hr/ ></div>";
+				echo "<div class='feed-line' ><hr/ ></div><br />";
 			}
 			else
 			{
@@ -165,7 +193,7 @@
 			echo "</div>";
 			echo "</div>";
 		}
-		echo"<div class='more-space'></div>";
+		// echo"<div class='more-space'></div>";
 	}
 	$conn = NULL;
 ?>
@@ -173,7 +201,7 @@
 	<!-- <div class="notified" id="notification">
 	</div> -->
 	<div class="footer">
-		<p>Julian Coetzee</p>
+		<a href="https://twitter.com/share" style="font-size: 200%" class="fa fa-twitter"></a>
 		<div class="copyright">Copyright© Camagru - WeThinkCode_ jcoetzee 2019</div>
 	</div>
 ​

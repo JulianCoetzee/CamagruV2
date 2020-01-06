@@ -44,5 +44,9 @@
         exit();
     }
     ?>
+        <div class="footer-2">
+		<div class="copyright">Copyright© Camagru - WeThinkCode_ jcoetzee 2019</div>
+	</div>
+​
   </body>
 </html>

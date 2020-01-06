@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="http://use.fontawesome.com/releases/v5.7.1/css/all.css">
     <link rel="stylesheet" href="../css_html/form.css">
     <link rel="stylesheet" href="../css_html/layout.css">
+    <link rel="stylesheet" href="../css_html/footer_conf.css">
   </head>
     <body>
         <div class="camagru_header">
@@ -25,5 +26,9 @@
           <button type="submit" class="formstuff" name="reset_pwd" value="Reset">Reset</button>
           </form>
         </div>
-     </body>
+        <div class="footer-2">
+		<div class="copyright">Copyright© Camagru - WeThinkCode_ jcoetzee 2019</div>
+	</div>
+​
+  </body>
 </html>

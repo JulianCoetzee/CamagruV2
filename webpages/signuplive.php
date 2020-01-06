@@ -5,6 +5,9 @@
         <title>Camagru SignUp</title>
         <link rel="stylesheet" href="http://use.fontawesome.com/releases/v5.7.1/css/all.css">
         <link rel="stylesheet" href="../css_html/form.css">
+        <link rel="stylesheet" href="../css_html/layout.css">
+        <link rel="stylesheet" href="../css_html/footer_conf.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <div class="camagru_header">
@@ -31,5 +34,9 @@
                 <button type="submit" class="formstuff" name="register" value="Sign Up">SignUp</button>
             </form>
         </div>
-    </body>
+        <div class="footer">
+		<a href="https://twitter.com/share" style="font-size: 200%" class="fa fa-twitter"></a>
+		<div class="copyright">Copyright© Camagru - WeThinkCode_ jcoetzee 2019</div>
+	</div>
+  </body>
 </html>

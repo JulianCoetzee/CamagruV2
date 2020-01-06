@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="http://use.fontawesome.com/releases/v5.7.1/css/all.css">
     <link rel="stylesheet" href="../css_html/form.css">
     <link rel="stylesheet" href="../css_html/layout.css">
+    <link rel="stylesheet" href="../css_html/footer_conf.css">
     <script src="../scripts/feedscripts.js"></script>
 <style type="text/css">
         #container
@@ -88,7 +89,34 @@
                     <a id='link' href='loginlive.php'>Login</a>
                 </div>");
             }
+        // if(isset($_SESSION['username']))
+        // {
+        //     echo("<div class='dropdowns'>
+        //             <label for='drop'><i class='fas fa-cheese'></i></label>
+        //             <button onclick='myFunction()' class='formstuff' name='drop' id='drop'>
+        //             <div class='other_option'></div>
+        //             <div class='options'></div>
+        //             <div class='options'></div>
+        //             <div class='options'></div>
+        //             </button>
+        //             <div id='myDropdown' class='dropdowns'>
+        //             <a href='profilelive.php'>Profile Options</a>
+        //             <a href='gallery.php'>Gallery</a>
+        //             <a href='feed.php'>Feed</a>
+        //             <a href='camlive.php'>Camera & Editor</a>
+        //             </div>
+        //         </div>");
+                
+        //     echo("<div class='loggedin-user'>@"
+        //         .$_SESSION['username']. 
+        //         "</div>");
+        // }   
         ?>
+    </div>
+    <div class="profile-links">
+	<a href='profilelive.php'>Profile Options</a>
+	<a href='feedlive.php'>Feed</a>
+	<!-- <a href='camlive.php'>Camera & Editor</a> -->
     </div>
     <div id="container">
         <video autoplay="true" id="videoElement"></video><br />
@@ -225,5 +253,9 @@
             videoElement.srcObject = stream;
         });
     </script>
-</body>
-</html>
+	<div class="footer">
+		<div class="copyright">Copyright© Camagru - WeThinkCode_ jcoetzee 2019</div>
+	</div>
+​
+  </body>
+</html>>

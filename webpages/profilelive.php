@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="http://use.fontawesome.com/releases/v5.7.1/css/all.css">
     <link rel="stylesheet" href="../css_html/form.css">
     <link rel="stylesheet" href="../css_html/layout.css">
+    <link rel="stylesheet" href="../css_html/footer_conf.css">
   </head>
     <body>
     <div class="camagru_header">
@@ -35,6 +36,11 @@
                 </div>");
             }
         ?>
+    </div>
+    <div class="profile-links">
+	<!-- <a href='profilelive.php'>Profile Options</a> -->
+	<a href='feedlive.php'>Feed</a>
+	<a href='camlive.php'>Camera & Editor</a>
     </div>
     <div class="option_block_1">
       <h3>Email Notifications</h3>
@@ -108,10 +114,10 @@
               </form>
               </div>
     </div>
-    <!-- <div class="footer">
-		<p>Julian Coetzee</p>
+    <br />
+    <div class="footer">
 		<div class="copyright">Copyright© Camagru - WeThinkCode_ jcoetzee 2019</div>
-	</div> -->
-
-     </body>
+	</div>
+​
+  </body>
 </html>
