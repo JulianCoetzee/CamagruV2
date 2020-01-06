@@ -1,6 +1,10 @@
 <?php
-	if(!isset($_SESSION['username']))
+  if(!isset($_SESSION['username']))
+  {
     session_start();
+    if (!isset($_SESSION['username']))
+      echo "<script>window.open('../webphp/login.php','_self')</script>";
+  }
 ?>
 
 <html>

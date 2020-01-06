@@ -23,7 +23,11 @@ function email_send($email, $tokey)
 }
 
 if(!isset($_SESSION['username']))
-    session_start();
+{
+  session_start();
+  if (!isset($_SESSION['username']))
+    echo "<script>window.open('../webphp/login.php','_self')</script>";
+}
 
 if (isset($_POST['change_pwd']))
 {
